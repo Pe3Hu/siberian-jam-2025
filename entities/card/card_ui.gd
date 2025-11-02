@@ -34,13 +34,14 @@ func roll_key_resource() -> void:
 			bbcode_str += part
 			part = ""
 			
-			match key_resource.suit:
-				"прикосновение":
-					bbcode_str += "[shake rate=20.0 level=5 connected=1]{text}[/shake]".format({"text": letter})
-				"звук":
-					bbcode_str += "[tornado radius=2.0 freq=3.5 connected=1]{text}[/tornado]".format({"text": letter})
-				"аромат":
-					bbcode_str += "[wave amp=30.0 freq=3.5 connected=1]{text}[/wave]".format({"text": letter})
+			bbcode_str += "[shake rate=20.0 level=5 connected=1]{text}[/shake]".format({"text": letter})
+			#match key_resource.suit:
+				#"прикосновение":
+					#bbcode_str += "[shake rate=20.0 level=5 connected=1]{text}[/shake]".format({"text": letter})
+				#"звук":
+					#bbcode_str += "[tornado radius=2.0 freq=3.5 connected=1]{text}[/tornado]".format({"text": letter})
+				#"аромат":
+					#bbcode_str += "[wave amp=30.0 freq=3.5 connected=1]{text}[/wave]".format({"text": letter})
 	
 	bbcode_str += part
 	title_label.text = bbcode_str#"[shake rate=20.0 level=5 connected=1]{title}[/shake]".format({"title": key_resource.title})

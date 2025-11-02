@@ -13,13 +13,13 @@ func set_obstacle_resource(obstacle_resource_: ObstacleResource) -> void:
 		"волшебница":
 			title_label.text = "[tornado radius=5.0 freq=3.0][rainbow freq=0.5 sat=0.8 val=0.8 speed=1.0]{text}[/rainbow][/tornado]".format({"text": obstacle_resource.title})
 		"девушка":
-			title_label.text = "[i]{text}[/i]".format({"text": obstacle_resource.title})
+			title_label.text = "[color=fuchsia][i]{text}[/i][/color]".format({"text": obstacle_resource.title})
 		"коршун":
 			title_label.text = "[bird freq=3 index=3 vertical_size=3]{text}[/bird]".format({"text": obstacle_resource.title})
 		"кукушка":
 			title_label.text = "[bird freq=3 index=4 vertical_size=3]{text}[/bird]".format({"text": obstacle_resource.title})
-		"кошка":#baseline,baseline,1
-			title_label.text = "ко[table=1,bottom,top][cell]ш[/cell][/table]ка"  
+		"кошка":#baseline,baseline,1 ко[table=1,bottom,top][cell]ш[/cell][/table]ка"  
+			title_label.text = "[cat freq=3 index=2 vertical_size=3]{text}[/cat]".format({"text": obstacle_resource.title})
 		"малыш":
 			title_label.text = "[baby]{text}[/baby]".format({"text": obstacle_resource.title})
 		"мошенник":

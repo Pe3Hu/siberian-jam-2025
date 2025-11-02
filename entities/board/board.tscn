@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bayw73ve8ui7r"]
+[gd_scene load_steps=13 format=3 uid="uid://bayw73ve8ui7r"]
 
 [ext_resource type="Script" uid="uid://clj64nhxgfcu1" path="res://entities/board/board.gd" id="1_yyni2"]
+[ext_resource type="PackedScene" uid="uid://s2pdpwjk650m" path="res://entities/handbook/handbook.tscn" id="2_cfpx4"]
 [ext_resource type="Script" uid="uid://ctalob28q7i63" path="res://entities/board/dropzone/dropzone_discard.gd" id="2_t5ja0"]
 [ext_resource type="Texture2D" uid="uid://4mfqcbvhcbmk" path="res://assets/1x1_#ffffffff.png" id="3_7373t"]
 [ext_resource type="Script" uid="uid://vnjr3cixrnoc" path="res://entities/board/dropzone/dropzone_any.gd" id="4_n0vul"]
@@ -26,6 +27,12 @@ point_count = 3
 [node name="Example" type="Node2D"]
 script = ExtResource("1_yyni2")
 
+[node name="Handbook" parent="." instance=ExtResource("2_cfpx4")]
+offset_left = 454.0
+offset_top = 25.0
+offset_right = 1120.0
+offset_bottom = 599.0
+
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -33,10 +40,10 @@ theme = SubResource("Theme_oqbkv")
 
 [node name="HBoxContainer" type="GridContainer" parent="Buttons"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 452.0
-offset_bottom = 265.0
+offset_left = 1287.0
+offset_top = 68.0
+offset_right = 1731.0
+offset_bottom = 309.0
 columns = 2
 metadata/_edit_group_ = true
 
@@ -59,10 +66,10 @@ text = "Reset"
 [node name="CardDropzone_Discard" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1250.0
-offset_top = 460.0
-offset_right = 1418.0
-offset_bottom = 700.0
+offset_left = 1294.0
+offset_top = 471.0
+offset_right = 1462.0
+offset_bottom = 711.0
 script = ExtResource("2_t5ja0")
 card_pile_ui = NodePath("../CardPileUI")
 can_drag_top_card = false
@@ -79,11 +86,12 @@ grow_vertical = 2
 texture = ExtResource("3_7373t")
 
 [node name="CardDropzone1" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 776.0
+offset_left = 904.0
 offset_top = 108.0
-offset_right = 944.0
+offset_right = 1072.0
 offset_bottom = 348.0
 script = ExtResource("4_n0vul")
 card_pile_ui = NodePath("../CardPileUI")
@@ -101,12 +109,13 @@ grow_vertical = 2
 texture = ExtResource("3_7373t")
 
 [node name="CardDropzone2" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 992.0
-offset_top = 108.0
-offset_right = 1160.0
-offset_bottom = 348.0
+offset_left = 1097.0
+offset_top = 115.0
+offset_right = 1265.0
+offset_bottom = 355.0
 script = ExtResource("4_n0vul")
 card_pile_ui = NodePath("../CardPileUI")
 max_stack_display = 1
@@ -123,12 +132,13 @@ grow_vertical = 2
 texture = ExtResource("3_7373t")
 
 [node name="CardDropzone3" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 560.0
-offset_top = 108.0
-offset_right = 728.0
-offset_bottom = 348.0
+offset_left = 715.0
+offset_top = 113.0
+offset_right = 883.0
+offset_bottom = 353.0
 script = ExtResource("4_n0vul")
 card_pile_ui = NodePath("../CardPileUI")
 max_stack_display = 1
@@ -147,10 +157,10 @@ texture = ExtResource("3_7373t")
 [node name="CardDropzone_Obstacle" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1250.0
-offset_top = 170.0
-offset_right = 1418.0
-offset_bottom = 410.0
+offset_left = 1293.0
+offset_top = 195.0
+offset_right = 1461.0
+offset_bottom = 435.0
 script = ExtResource("5_7n3tm")
 card_obstacle_scene = ExtResource("6_56qjt")
 card_pile_ui = NodePath("../CardPileUI")

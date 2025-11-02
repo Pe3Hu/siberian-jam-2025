@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="ObstacleResource" load_steps=2 format=3 uid="uid://1q6p02uv1h5i"]
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=3 format=3 uid="uid://1q6p02uv1h5i"]
 
+[ext_resource type="Resource" uid="uid://yxxnb6kcvh3v" path="res://entities/card/resources/lock/lock_3.tres" id="1_h5m1u"]
 [ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="2_ae7er"]
 
 [resource]
 script = ExtResource("2_ae7er")
 title = "шут"
+lock = ExtResource("1_h5m1u")
 metadata/_custom_type_script = "uid://badgjwq5aujn"

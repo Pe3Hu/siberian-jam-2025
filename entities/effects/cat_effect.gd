@@ -1,9 +1,9 @@
 @tool
-class_name BirdRichTextEffect
+class_name CatRichTextEffect
 extends RichTextEffect
 
 
-var bbcode = "bird"
+var bbcode = "cat"
 
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
@@ -12,10 +12,10 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var freq = char_fx.env.get("freq", 1.0)
 	
 	char_fx.offset.y += (vertical_size * 
-	abs(pivot_index - char_fx.relative_index)) *\
+	(vertical_size - abs(pivot_index - char_fx.relative_index))) *\
 	(sin(char_fx.elapsed_time * freq) * 2 ) 
 	
 	char_fx.transform = char_fx.transform.translated(
-		Vector2(char_fx.elapsed_time * 2, -char_fx.elapsed_time) * 5
+		Vector2(0, char_fx.elapsed_time) * 10
 	)
 	return true

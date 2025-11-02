@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsewrrheailuf"]
+[gd_scene load_steps=23 format=3 uid="uid://bsewrrheailuf"]
 
 [ext_resource type="Script" uid="uid://gaw23fbx7yug" path="res://entities/card/obstacle/obstacle_card_ui.gd" id="1_hio5a"]
 [ext_resource type="Texture2D" uid="uid://ci1r1djmakryb" path="res://entities/card/images/card_back.png" id="2_o3a18"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://f6k588w6jxf2" path="res://entities/effects/mashroom_effect.gd" id="9_1sbir"]
 [ext_resource type="Script" uid="uid://bcl2gywlfyi3l" path="res://entities/effects/needle_effect.gd" id="10_7hgaj"]
 [ext_resource type="Script" uid="uid://dkaghw0jdk21v" path="res://entities/effects/slinky_effect.gd" id="11_ntxap"]
+[ext_resource type="Script" uid="uid://b6hqcxfv2evf3" path="res://entities/effects/cat_effect.gd" id="12_8toy1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8o4st"]
 
@@ -45,6 +46,10 @@ metadata/_custom_type_script = "uid://bcl2gywlfyi3l"
 [sub_resource type="RichTextEffect" id="RichTextEffect_8toy1"]
 script = ExtResource("11_ntxap")
 metadata/_custom_type_script = "uid://dkaghw0jdk21v"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mdghr"]
+script = ExtResource("12_8toy1")
+metadata/_custom_type_script = "uid://b6hqcxfv2evf3"
 
 [node name="ObstacleCardUI" type="Control"]
 layout_mode = 3
@@ -104,4 +109,4 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[thief duration=5]мошенник[/thief]"
 horizontal_alignment = 2
-custom_effects = [SubResource("RichTextEffect_kv5ys"), SubResource("RichTextEffect_1082n"), SubResource("RichTextEffect_p373a"), SubResource("RichTextEffect_sengf"), SubResource("RichTextEffect_1sbir"), SubResource("RichTextEffect_7hgaj"), SubResource("RichTextEffect_ntxap"), SubResource("RichTextEffect_8toy1")]
+custom_effects = [SubResource("RichTextEffect_kv5ys"), SubResource("RichTextEffect_1082n"), SubResource("RichTextEffect_p373a"), SubResource("RichTextEffect_sengf"), SubResource("RichTextEffect_1sbir"), SubResource("RichTextEffect_7hgaj"), SubResource("RichTextEffect_ntxap"), SubResource("RichTextEffect_8toy1"), SubResource("RichTextEffect_mdghr")]

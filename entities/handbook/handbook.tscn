@@ -1,0 +1,155 @@
+[gd_scene load_steps=13 format=3 uid="uid://s2pdpwjk650m"]
+
+[ext_resource type="Script" uid="uid://vyoflfa4jc8y" path="res://entities/handbook/handbook.gd" id="1_5rdi7"]
+[ext_resource type="Shader" uid="uid://pj46463al08d" path="res://entities/handbook/slot/slot.gdshader" id="2_o070q"]
+[ext_resource type="PackedScene" uid="uid://b85rvx41mwdq" path="res://entities/handbook/certificate/certificate.tscn" id="2_wjgqs"]
+[ext_resource type="Texture2D" uid="uid://4twhitwykhqe" path="res://entities/handbook/slot/images/epiphany.png" id="3_t3m5t"]
+[ext_resource type="Texture2D" uid="uid://6hdx6oc6oar0" path="res://entities/handbook/slot/images/input.png" id="4_h046u"]
+[ext_resource type="Texture2D" uid="uid://d1ki1q6evbbjf" path="res://entities/handbook/slot/images/ignore.png" id="5_h046u"]
+[ext_resource type="Texture2D" uid="uid://c45nhjsc7xgac" path="res://entities/handbook/slot/images/output.png" id="6_o070q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o070q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hi54"]
+shader = ExtResource("2_o070q")
+shader_parameter/use_grayscale = true
+shader_parameter/shift_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hi54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pvp50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d1ck"]
+
+[node name="Handbook" type="PanelContainer"]
+script = ExtResource("1_5rdi7")
+
+[node name="Slots" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slots"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="Slots/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o070q")
+
+[node name="TextureRect2" type="TextureRect" parent="Slots/HBoxContainer/TitlePanelContainer"]
+material = SubResource("ShaderMaterial_1hi54")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_t3m5t")
+stretch_mode = 2
+
+[node name="OutputPanelContainer" type="PanelContainer" parent="Slots/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1hi54")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/HBoxContainer/OutputPanelContainer"]
+material = SubResource("ShaderMaterial_1hi54")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_o070q")
+stretch_mode = 2
+
+[node name="InputPanelContainer" type="PanelContainer" parent="Slots/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pvp50")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/HBoxContainer/InputPanelContainer"]
+material = SubResource("ShaderMaterial_1hi54")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_h046u")
+stretch_mode = 2
+
+[node name="IgnoreContainer" type="PanelContainer" parent="Slots/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3d1ck")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/HBoxContainer/IgnoreContainer"]
+material = SubResource("ShaderMaterial_1hi54")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_h046u")
+stretch_mode = 2
+
+[node name="Certificate" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "малыш"
+
+[node name="Certificate2" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "малыш"
+
+[node name="Certificate3" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "кошка"
+
+[node name="Certificate4" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "шут"
+
+[node name="Certificate5" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "кукушка"
+
+[node name="Certificate6" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "коршун"
+
+[node name="Certificate7" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "петушок"
+
+[node name="Certificate8" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "мышь"
+
+[node name="Certificate9" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "шиншила"
+
+[node name="Certificate10" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "шаман"
+
+[node name="Certificate11" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "швея"
+
+[node name="Certificate12" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "волшебница"
+
+[node name="Certificate13" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "мошенник"
+
+[node name="Certificate14" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "девушка"
+
+[node name="Certificate15" parent="Slots" instance=ExtResource("2_wjgqs")]
+layout_mode = 2
+title = "хищник"

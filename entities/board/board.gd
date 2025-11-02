@@ -11,8 +11,8 @@ extends Node2D
 
 func _ready():
 	randomize()
-	card_pile_ui.draw(Settings.HAND_DEFAULT)
-	sort_hand()
+	#card_pile_ui.draw(Settings.HAND_DEFAULT)
+	#sort_hand()
 
 func _get_rand_joker():
 	return "Black Joker" if randi_range(0, 1) else "Red Joker"
