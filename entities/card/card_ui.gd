@@ -22,7 +22,28 @@ func roll_key_resource() -> void:
 	
 	var stock = load("res://entities/deck/stock/" + stock_path + ".tres")
 	generate_key(stock)
-	title_label.text = key_resource.title
+	
+	var bbcode_str = ""
+	var part = ""
+	var letters = ["щ","ш","м","т"]
+	
+	for letter in key_resource.title:
+		if !letters.has(letter):
+			part += letter
+		else:
+			bbcode_str += part
+			part = ""
+			
+			match key_resource.suit:
+				"прикосновение":
+					bbcode_str += "[shake rate=20.0 level=5 connected=1]{text}[/shake]".format({"text": letter})
+				"звук":
+					bbcode_str += "[tornado radius=2.0 freq=3.5 connected=1]{text}[/tornado]".format({"text": letter})
+				"аромат":
+					bbcode_str += "[wave amp=30.0 freq=3.5 connected=1]{text}[/wave]".format({"text": letter})
+	
+	bbcode_str += part
+	title_label.text = bbcode_str#"[shake rate=20.0 level=5 connected=1]{title}[/shake]".format({"title": key_resource.title})
 	
 func generate_key(stock_: StockResource) -> void:
 	var options = stock_.keys.filter(func (a): return !Settings.key_exceptions.has(a))

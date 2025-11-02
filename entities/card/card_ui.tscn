@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs2vgjwuarxm5"]
+[gd_scene load_steps=5 format=3 uid="uid://bs2vgjwuarxm5"]
 
 [ext_resource type="Script" uid="uid://b33ua2wew8gn1" path="res://entities/card/card_ui.gd" id="1_uohi1"]
 [ext_resource type="Texture2D" uid="uid://ci1r1djmakryb" path="res://entities/card/images/card_back.png" id="2_4ri8g"]
 [ext_resource type="Texture2D" uid="uid://bjy6ujbrflhfx" path="res://entities/card/images/card_clubs_02.png" id="3_m3t1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u11ho"]
 
 [node name="BoardCardUI" type="Control"]
 layout_mode = 3
@@ -43,15 +45,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="TitleLabel" type="Label" parent="Frontface/MarginContainer"]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="Frontface/MarginContainer"]
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 14
-text = "ишя"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u11ho")
+
+[node name="TitleLabel" type="RichTextLabel" parent="Frontface/MarginContainer/PanelContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "ищя"
+vertical_alignment = 1

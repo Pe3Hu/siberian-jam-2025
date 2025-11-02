@@ -144,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_7373t")
 
-[node name="CardDropzone_Obstacle" type="Control" parent="."]
+[node name="CardDropzone_Obstacle" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1250.0
@@ -153,6 +153,7 @@ offset_right = 1418.0
 offset_bottom = 410.0
 script = ExtResource("5_7n3tm")
 card_obstacle_scene = ExtResource("6_56qjt")
+card_pile_ui = NodePath("../CardPileUI")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CardDropzone_Obstacle"]
@@ -172,6 +173,7 @@ script = ExtResource("5_dbdlv")
 json_card_database_path = "res://entities/card/card_database.json"
 json_card_collection_path = "res://entities/card/card_collection.json"
 extended_card_ui = ExtResource("6_1w52g")
+extended_card_obstacle_ui = ExtResource("6_56qjt")
 draw_pile_layout = 2
 hand_rotation_curve = SubResource("Curve_ayyaa")
 hand_vertical_curve = SubResource("Curve_afhc1")

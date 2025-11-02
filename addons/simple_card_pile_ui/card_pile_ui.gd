@@ -1,4 +1,5 @@
-class_name CardPileUI extends Control
+class_name CardPileUI 
+extends Control
 
 signal draw_pile_updated
 signal hand_pile_updated
@@ -27,6 +28,8 @@ enum PilesCardLayouts {
 @export_file("*.json") var json_card_database_path : String
 @export_file("*.json") var json_card_collection_path : String
 @export var extended_card_ui : PackedScene
+@export var extended_card_obstacle_ui : PackedScene
+@export var obstacle_dropzone: CardDropzone
 
 @export_group("Pile Positions")
 @export var draw_pile_position = Vector2(20, 460)
@@ -402,3 +405,23 @@ func _get_card_data_by_nice_name(nice_name : String):
 
 func place_in_hand(card_: CardUI) -> void:
 	set_card_pile(card_, Piles.hand_pile)
+	
+func _create_obstacle_card_ui(json_data : Dictionary):
+	var card_ui = extended_card_obstacle_ui.instantiate()
+	card_ui.frontface_texture = json_data.texture_path
+	card_ui.backface_texture = json_data.backface_texture_path
+	card_ui.return_speed = card_return_speed
+	card_ui.hover_distance = card_ui_hover_distance
+	card_ui.drag_when_clicked = drag_when_clicked
+
+	card_ui.card_data = ResourceLoader.load(json_data.resource_script_path).new()
+	for key in json_data.keys():
+		if key != "texture_path" and key != "backface_texture_path" and key != "resource_script_path":
+			card_ui.card_data[key] = json_data[key]
+	card_ui.connect("card_hovered", func(c_ui): emit_signal("card_hovered", c_ui))
+	card_ui.connect("card_unhovered", func(c_ui): emit_signal("card_unhovered", c_ui))
+	card_ui.connect("card_clicked", func(c_ui): emit_signal("card_clicked", c_ui))
+	card_ui.connect("card_dropped", func(c_ui): emit_signal("card_dropped", c_ui))
+	add_child(card_ui)
+	return card_ui
+	
