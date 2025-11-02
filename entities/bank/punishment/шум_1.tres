@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PunishmentResource" load_steps=2 format=3 uid="uid://dchjjwrlg5433"]
+
+[ext_resource type="Script" uid="uid://ducluaab6nr6b" path="res://entities/bank/punishment/punishment_resource.gd" id="1_1837i"]
+
+[resource]
+script = ExtResource("1_1837i")
+metadata/_custom_type_script = "uid://ducluaab6nr6b"

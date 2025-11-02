@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=2 format=3 uid="uid://bklmpdab5rfuq"]
+
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="1_us6os"]
+
+[resource]
+script = ExtResource("1_us6os")
+title = "малыш"
+metadata/_custom_type_script = "uid://badgjwq5aujn"

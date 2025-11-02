@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=3 format=3 uid="uid://cr5qjy5n4n3i"]
+
+[ext_resource type="Resource" uid="uid://bwtinfejp6i7i" path="res://entities/card/resources/lock/lock_12.tres" id="1_dc8dr"]
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="2_8ahu7"]
+
+[resource]
+script = ExtResource("2_8ahu7")
+title = "хищник"
+lock = ExtResource("1_dc8dr")
+metadata/_custom_type_script = "uid://badgjwq5aujn"

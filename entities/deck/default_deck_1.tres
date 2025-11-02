@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DeckResource" load_steps=4 format=3 uid="uid://b7ka3wtrjky5t"]
+
+[ext_resource type="Script" uid="uid://bnxr8ck5gb831" path="res://entities/card/resources/card_resource.gd" id="1_s27hh"]
+[ext_resource type="Script" uid="uid://58eivgpcni8a" path="res://entities/card/resources/card_key_resource.gd" id="2_r038g"]
+[ext_resource type="Script" uid="uid://crulyl6kcnd1q" path="res://entities/deck/deck_resource.gd" id="3_mmm02"]
+
+[resource]
+script = ExtResource("3_mmm02")
+metadata/_custom_type_script = "uid://crulyl6kcnd1q"

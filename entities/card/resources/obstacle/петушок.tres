@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=3 format=3 uid="uid://cs8ljjvwktuc"]
+
+[ext_resource type="Resource" uid="uid://yxxnb6kcvh3v" path="res://entities/card/resources/lock/lock_3.tres" id="1_m65gw"]
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="2_vm52h"]
+
+[resource]
+script = ExtResource("2_vm52h")
+title = "петушок"
+type = "beast"
+lock = ExtResource("1_m65gw")
+metadata/_custom_type_script = "uid://badgjwq5aujn"

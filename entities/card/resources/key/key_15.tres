@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardKeyResource" load_steps=3 format=3 uid="uid://btadljgg50pah"]
+
+[ext_resource type="Script" uid="uid://ducluaab6nr6b" path="res://entities/bank/punishment/punishment_resource.gd" id="1_d2ml5"]
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="2_b4icu"]
+
+[resource]
+script = ExtResource("2_b4icu")
+title = "шафран"
+suit = "аромат"
+type = "растение"
+name = "spare credits"
+metadata/_custom_type_script = "uid://bw8sipxsuhu5x"

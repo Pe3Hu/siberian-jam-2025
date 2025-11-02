@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WallResource" load_steps=10 format=3 uid="uid://by3j16fjewd7q"]
+
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="1_0kplo"]
+[ext_resource type="Resource" uid="uid://dcwyvrr0evma6" path="res://entities/card/resources/obstacle/коршун.tres" id="4_mpomf"]
+[ext_resource type="Resource" uid="uid://bdiy8qfb0mesb" path="res://entities/card/resources/obstacle/кошка.tres" id="5_aj13l"]
+[ext_resource type="Resource" uid="uid://cdp67qav1548t" path="res://entities/card/resources/obstacle/кукушка.tres" id="6_sgrvo"]
+[ext_resource type="Resource" uid="uid://eytuehi7l0x6" path="res://entities/card/resources/obstacle/мышь.tres" id="10_3lfi3"]
+[ext_resource type="Resource" uid="uid://cs8ljjvwktuc" path="res://entities/card/resources/obstacle/петушок.tres" id="11_u8r78"]
+[ext_resource type="Resource" uid="uid://cr5qjy5n4n3i" path="res://entities/card/resources/obstacle/хищник.tres" id="12_uqrkb"]
+[ext_resource type="Resource" uid="uid://bwkitxdxrj5t0" path="res://entities/card/resources/obstacle/шиншила.tres" id="15_m2gdu"]
+[ext_resource type="Script" uid="uid://bxpmdxomwttgl" path="res://entities/deck/wall/wall_resource.gd" id="17_b0aed"]
+
+[resource]
+script = ExtResource("17_b0aed")
+type = "животное"
+obstacles = Array[ExtResource("1_0kplo")]([ExtResource("4_mpomf"), ExtResource("5_aj13l"), ExtResource("6_sgrvo"), ExtResource("10_3lfi3"), ExtResource("11_u8r78"), ExtResource("12_uqrkb"), ExtResource("15_m2gdu")])
+metadata/_custom_type_script = "uid://bxpmdxomwttgl"

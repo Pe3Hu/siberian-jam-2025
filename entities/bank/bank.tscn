@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://mhvnxqjo5wug"]
+
+[ext_resource type="Script" uid="uid://ceuxvujuhwlnm" path="res://entities/bank/bank.gd" id="1_ewxrm"]
+[ext_resource type="PackedScene" uid="uid://cyr4dfy8qnwh6" path="res://entities/token/token.tscn" id="2_v5rbr"]
+
+[node name="Bank" type="PanelContainer"]
+script = ExtResource("1_ewxrm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="CoreTokens" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+unique_name_in_owner = true
+layout_mode = 2
+core = "action"
+value_int = 3
+
+[node name="CreditToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+unique_name_in_owner = true
+layout_mode = 2
+core = "credit"
+value_int = 0
+
+[node name="ArmorToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+unique_name_in_owner = true
+layout_mode = 2
+core = "armor"
+value_int = 0
+
+[node name="HealthToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+unique_name_in_owner = true
+layout_mode = 2
+core = "health"
+value_int = 9
+
+[node name="DamageTokens" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1

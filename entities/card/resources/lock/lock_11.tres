@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LockResource" load_steps=10 format=3 uid="uid://dgpvau3nm483b"]
+
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_56mb1"]
+[ext_resource type="Resource" uid="uid://bdwshlpecgt44" path="res://entities/card/resources/key/key_3.tres" id="2_86scd"]
+[ext_resource type="Script" uid="uid://cfdww65wbruld" path="res://entities/card/resources/lock/lock_resource.gd" id="2_sv8a6"]
+[ext_resource type="Resource" uid="uid://bgyegfm4ata0l" path="res://entities/card/resources/key/key_11.tres" id="3_2vcyx"]
+[ext_resource type="Resource" uid="uid://slw0sylwcgeu" path="res://entities/card/resources/key/key_16.tres" id="4_yvp2v"]
+[ext_resource type="Resource" uid="uid://c6gjir1uk17dv" path="res://entities/card/resources/key/key_29.tres" id="5_xsyko"]
+[ext_resource type="Resource" uid="uid://dimtqa5h7kf4y" path="res://entities/card/resources/key/key_39.tres" id="6_yai33"]
+[ext_resource type="Resource" uid="uid://0u127t5ckoi" path="res://entities/card/resources/key/key_23.tres" id="7_kij4t"]
+[ext_resource type="Resource" uid="uid://djd87yo56shfd" path="res://entities/card/resources/key/key_30.tres" id="8_5x066"]
+
+[resource]
+script = ExtResource("2_sv8a6")
+input_keys = Array[ExtResource("1_56mb1")]([ExtResource("3_2vcyx"), ExtResource("4_yvp2v"), ExtResource("5_xsyko"), ExtResource("6_yai33")])
+output_keys = Array[ExtResource("1_56mb1")]([ExtResource("7_kij4t"), ExtResource("8_5x066")])
+ignore_keys = Array[ExtResource("1_56mb1")]([ExtResource("2_86scd")])
+metadata/_custom_type_script = "uid://cfdww65wbruld"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WallResource" load_steps=11 format=3 uid="uid://brv237uhd4eid"]
+
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="1_vduyn"]
+[ext_resource type="Resource" uid="uid://d0unar32hr2qg" path="res://entities/card/resources/obstacle/волшебница.tres" id="2_8wnd7"]
+[ext_resource type="Resource" uid="uid://wrj5l6esc0u7" path="res://entities/card/resources/obstacle/девушка.tres" id="3_r8k4v"]
+[ext_resource type="Resource" uid="uid://bklmpdab5rfuq" path="res://entities/card/resources/obstacle/малыш.tres" id="7_pvoxw"]
+[ext_resource type="Resource" uid="uid://6r7e70v0vumt" path="res://entities/card/resources/obstacle/мошенник.tres" id="8_ooayq"]
+[ext_resource type="Resource" uid="uid://c2n8kb1r4yd0p" path="res://entities/card/resources/obstacle/мушкетер.tres" id="9_aiti8"]
+[ext_resource type="Resource" uid="uid://c8e87yvanj8nm" path="res://entities/card/resources/obstacle/шаман.tres" id="13_oaudx"]
+[ext_resource type="Resource" uid="uid://dnckb4b6fxxi6" path="res://entities/card/resources/obstacle/швея.tres" id="14_wfrgm"]
+[ext_resource type="Resource" uid="uid://1q6p02uv1h5i" path="res://entities/card/resources/obstacle/шут.tres" id="16_c4k1f"]
+[ext_resource type="Script" uid="uid://bxpmdxomwttgl" path="res://entities/deck/wall/wall_resource.gd" id="17_f2bna"]
+
+[resource]
+script = ExtResource("17_f2bna")
+type = "человек"
+obstacles = Array[ExtResource("1_vduyn")]([ExtResource("2_8wnd7"), ExtResource("3_r8k4v"), ExtResource("7_pvoxw"), ExtResource("8_ooayq"), ExtResource("9_aiti8"), ExtResource("13_oaudx"), ExtResource("14_wfrgm"), ExtResource("16_c4k1f")])
+metadata/_custom_type_script = "uid://bxpmdxomwttgl"

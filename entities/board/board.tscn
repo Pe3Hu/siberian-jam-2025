@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=3 uid="uid://bayw73ve8ui7r"]
+
+[ext_resource type="Script" uid="uid://clj64nhxgfcu1" path="res://entities/board/board.gd" id="1_yyni2"]
+[ext_resource type="Script" uid="uid://ctalob28q7i63" path="res://entities/board/dropzone/dropzone_discard.gd" id="2_t5ja0"]
+[ext_resource type="Texture2D" uid="uid://4mfqcbvhcbmk" path="res://assets/1x1_#ffffffff.png" id="3_7373t"]
+[ext_resource type="Script" uid="uid://vnjr3cixrnoc" path="res://entities/board/dropzone/dropzone_any.gd" id="4_n0vul"]
+[ext_resource type="Script" uid="uid://ccyiwa8q853n" path="res://entities/board/dropzone/dropzone_obstacle.gd" id="5_7n3tm"]
+[ext_resource type="Script" uid="uid://fgdfmt6v2f8n" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="5_dbdlv"]
+[ext_resource type="PackedScene" uid="uid://bs2vgjwuarxm5" path="res://entities/card/card_ui.tscn" id="6_1w52g"]
+[ext_resource type="PackedScene" uid="uid://bsewrrheailuf" path="res://entities/card/obstacle/obstacle_card_ui.tscn" id="6_56qjt"]
+
+[sub_resource type="Theme" id="Theme_oqbkv"]
+Button/font_sizes/font_size = 12
+RichTextLabel/font_sizes/normal_font_size = 12
+
+[sub_resource type="Curve" id="Curve_ayyaa"]
+_limits = [-15.0, 15.0, 0.0, 1.0]
+_data = [Vector2(0, -15), 0.0, 30.0, 0, 1, Vector2(1, 15), 30.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_afhc1"]
+_limits = [0.0, 50.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 60.0, 0, 0, Vector2(0.5, 40), 0.0, 0.0, 0, 0, Vector2(1, 0), -60.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Example" type="Node2D"]
+script = ExtResource("1_yyni2")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_oqbkv")
+
+[node name="HBoxContainer" type="GridContainer" parent="Buttons"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 452.0
+offset_bottom = 265.0
+columns = 2
+metadata/_edit_group_ = true
+
+[node name="DrawButton" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Draw"
+
+[node name="Draw3Button" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Draw 3"
+
+[node name="SortButton" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Sort Hand"
+
+[node name="ResetButton" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="CardDropzone_Discard" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1250.0
+offset_top = 460.0
+offset_right = 1418.0
+offset_bottom = 700.0
+script = ExtResource("2_t5ja0")
+card_pile_ui = NodePath("../CardPileUI")
+can_drag_top_card = false
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardDropzone_Discard"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7373t")
+
+[node name="CardDropzone1" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 776.0
+offset_top = 108.0
+offset_right = 944.0
+offset_bottom = 348.0
+script = ExtResource("4_n0vul")
+card_pile_ui = NodePath("../CardPileUI")
+max_stack_display = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardDropzone1"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7373t")
+
+[node name="CardDropzone2" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 992.0
+offset_top = 108.0
+offset_right = 1160.0
+offset_bottom = 348.0
+script = ExtResource("4_n0vul")
+card_pile_ui = NodePath("../CardPileUI")
+max_stack_display = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardDropzone2"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7373t")
+
+[node name="CardDropzone3" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 108.0
+offset_right = 728.0
+offset_bottom = 348.0
+script = ExtResource("4_n0vul")
+card_pile_ui = NodePath("../CardPileUI")
+max_stack_display = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardDropzone3"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7373t")
+
+[node name="CardDropzone_Obstacle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1250.0
+offset_top = 170.0
+offset_right = 1418.0
+offset_bottom = 410.0
+script = ExtResource("5_7n3tm")
+card_obstacle_scene = ExtResource("6_56qjt")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardDropzone_Obstacle"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7373t")
+
+[node name="CardPileUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5_dbdlv")
+json_card_database_path = "res://entities/card/card_database.json"
+json_card_collection_path = "res://entities/card/card_collection.json"
+extended_card_ui = ExtResource("6_1w52g")
+draw_pile_layout = 2
+hand_rotation_curve = SubResource("Curve_ayyaa")
+hand_vertical_curve = SubResource("Curve_afhc1")
+
+[connection signal="pressed" from="Buttons/HBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Draw3Button" to="." method="_on_draw_3_button_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/SortButton" to="." method="_on_sort_button_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

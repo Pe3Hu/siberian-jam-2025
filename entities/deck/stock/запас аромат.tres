@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StockResource" load_steps=9 format=3 uid="uid://d3ssyycwvw21n"]
+
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_7tj00"]
+[ext_resource type="Resource" uid="uid://bgyegfm4ata0l" path="res://entities/card/resources/key/key_11.tres" id="2_10lqk"]
+[ext_resource type="Script" uid="uid://cpdik5mlb0lo7" path="res://entities/deck/stock/stock_resource.gd" id="2_ik0kl"]
+[ext_resource type="Resource" uid="uid://d3k2d2501ce5p" path="res://entities/card/resources/key/key_12.tres" id="3_n60ec"]
+[ext_resource type="Resource" uid="uid://ydbeovcmixo1" path="res://entities/card/resources/key/key_13.tres" id="4_b32gg"]
+[ext_resource type="Resource" uid="uid://cfuucetlhqvw8" path="res://entities/card/resources/key/key_14.tres" id="5_q8uxv"]
+[ext_resource type="Resource" uid="uid://btadljgg50pah" path="res://entities/card/resources/key/key_15.tres" id="6_k64kd"]
+[ext_resource type="Resource" uid="uid://slw0sylwcgeu" path="res://entities/card/resources/key/key_16.tres" id="7_rx863"]
+
+[resource]
+script = ExtResource("2_ik0kl")
+suit = "аромат"
+keys = Array[ExtResource("1_7tj00")]([ExtResource("2_10lqk"), ExtResource("3_n60ec"), ExtResource("4_b32gg"), ExtResource("5_q8uxv"), ExtResource("6_k64kd"), ExtResource("7_rx863")])
+metadata/_custom_type_script = "uid://cpdik5mlb0lo7"

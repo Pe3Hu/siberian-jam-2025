@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LockResource" load_steps=9 format=3 uid="uid://cq8op1s6x0vh2"]
+
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_7qxxt"]
+[ext_resource type="Script" uid="uid://cfdww65wbruld" path="res://entities/card/resources/lock/lock_resource.gd" id="2_iafeq"]
+[ext_resource type="Resource" uid="uid://dpgxp0s3gfgnj" path="res://entities/card/resources/key/key_2.tres" id="2_j8t0e"]
+[ext_resource type="Resource" uid="uid://bwrl3u6q3cdd0" path="res://entities/card/resources/key/key_27.tres" id="2_mr4qd"]
+[ext_resource type="Resource" uid="uid://oaohakwao0id" path="res://entities/card/resources/key/key_28.tres" id="3_j8t0e"]
+[ext_resource type="Resource" uid="uid://b6q7wnncobfpm" path="res://entities/card/resources/key/key_36.tres" id="4_f1nry"]
+[ext_resource type="Resource" uid="uid://bpj21tt31vsqi" path="res://entities/card/resources/key/key_35.tres" id="5_kfild"]
+[ext_resource type="Resource" uid="uid://ckrwjsbnaukt3" path="res://entities/card/resources/key/key_37.tres" id="6_jadyl"]
+
+[resource]
+script = ExtResource("2_iafeq")
+input_keys = Array[ExtResource("1_7qxxt")]([ExtResource("2_mr4qd"), ExtResource("3_j8t0e"), ExtResource("4_f1nry")])
+output_keys = Array[ExtResource("1_7qxxt")]([ExtResource("5_kfild"), ExtResource("6_jadyl")])
+ignore_keys = Array[ExtResource("1_7qxxt")]([ExtResource("2_j8t0e")])
+metadata/_custom_type_script = "uid://cfdww65wbruld"

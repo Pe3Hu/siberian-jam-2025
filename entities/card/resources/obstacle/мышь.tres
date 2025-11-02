@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=3 format=3 uid="uid://eytuehi7l0x6"]
+
+[ext_resource type="Resource" uid="uid://dtq1bcapdoap6" path="res://entities/card/resources/lock/lock_4.tres" id="1_72pvc"]
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="2_33y3c"]
+
+[resource]
+script = ExtResource("2_33y3c")
+title = "мышь"
+type = "beast"
+lock = ExtResource("1_72pvc")
+metadata/_custom_type_script = "uid://badgjwq5aujn"

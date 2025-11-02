@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObstacleResource" load_steps=3 format=3 uid="uid://wrj5l6esc0u7"]
+
+[ext_resource type="Resource" uid="uid://dgpvau3nm483b" path="res://entities/card/resources/lock/lock_11.tres" id="1_yvg0q"]
+[ext_resource type="Script" uid="uid://badgjwq5aujn" path="res://entities/card/resources/obstacle/obstacle_resource.gd" id="2_shagf"]
+
+[resource]
+script = ExtResource("2_shagf")
+title = "девушка"
+lock = ExtResource("1_yvg0q")
+metadata/_custom_type_script = "uid://badgjwq5aujn"

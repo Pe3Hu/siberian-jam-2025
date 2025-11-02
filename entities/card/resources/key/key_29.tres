@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardKeyResource" load_steps=3 format=3 uid="uid://c6gjir1uk17dv"]
+
+[ext_resource type="Script" uid="uid://ducluaab6nr6b" path="res://entities/bank/punishment/punishment_resource.gd" id="1_x835q"]
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="2_vfcss"]
+
+[resource]
+script = ExtResource("2_vfcss")
+title = "шарф"
+suit = "прикосновение"
+type = "одежда"
+name = "spare credits"
+metadata/_custom_type_script = "uid://bw8sipxsuhu5x"

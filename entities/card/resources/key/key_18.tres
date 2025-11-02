@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="KeyResource" load_steps=3 format=3 uid="uid://c6k0e6xpfrgmk"]
+
+[ext_resource type="Script" uid="uid://ducluaab6nr6b" path="res://entities/bank/punishment/punishment_resource.gd" id="1_gacn6"]
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="2_uc6kq"]
+
+[resource]
+script = ExtResource("2_uc6kq")
+title = "шерсть"
+suit = "прикосновение"
+type = "материал"
+metadata/_custom_type_script = "uid://bw8sipxsuhu5x"

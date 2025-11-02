@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardKeyResource" load_steps=3 format=3 uid="uid://cf61f2e1or5a2"]
+
+[ext_resource type="Resource" uid="uid://dayjusrc67u77" path="res://entities/card/resources/key/key_1.tres" id="1_sh0f3"]
+[ext_resource type="Script" uid="uid://58eivgpcni8a" path="res://entities/card/resources/card_key_resource.gd" id="2_4yr1t"]
+
+[resource]
+script = ExtResource("2_4yr1t")
+key = ExtResource("1_sh0f3")
+metadata/_custom_type_script = "uid://58eivgpcni8a"

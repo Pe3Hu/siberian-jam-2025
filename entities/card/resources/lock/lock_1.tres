@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LockResource" load_steps=8 format=3 uid="uid://b6nu84oi6ruik"]
+
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_y7wbu"]
+[ext_resource type="Resource" uid="uid://slw0sylwcgeu" path="res://entities/card/resources/key/key_16.tres" id="2_aq7mh"]
+[ext_resource type="Script" uid="uid://cfdww65wbruld" path="res://entities/card/resources/lock/lock_resource.gd" id="2_y7wbu"]
+[ext_resource type="Resource" uid="uid://bxpl4fdfaffme" path="res://entities/card/resources/key/key_5.tres" id="3_lxthv"]
+[ext_resource type="Resource" uid="uid://cahtcjynjvx4y" path="res://entities/card/resources/key/key_7.tres" id="4_u247u"]
+[ext_resource type="Resource" uid="uid://bgyegfm4ata0l" path="res://entities/card/resources/key/key_11.tres" id="5_2srsr"]
+[ext_resource type="Resource" uid="uid://bdwshlpecgt44" path="res://entities/card/resources/key/key_3.tres" id="6_b0boa"]
+
+[resource]
+script = ExtResource("2_y7wbu")
+input_keys = Array[ExtResource("1_y7wbu")]([ExtResource("3_lxthv"), ExtResource("4_u247u"), ExtResource("5_2srsr")])
+output_keys = Array[ExtResource("1_y7wbu")]([ExtResource("6_b0boa")])
+ignore_keys = Array[ExtResource("1_y7wbu")]([ExtResource("2_aq7mh")])
+metadata/_custom_type_script = "uid://cfdww65wbruld"
