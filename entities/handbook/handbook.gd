@@ -7,6 +7,7 @@ var last_combo_input_keys: Array[KeyResource]
 var last_obstacle: ObstacleResource
 
 @onready var certificates = [
+	%Certificate1,
 	%Certificate2,
 	%Certificate3,
 	%Certificate4,
@@ -28,6 +29,7 @@ var has_new_words: bool = false
 
 func update() -> void:
 	first_meet()
+	Settings.temp_obstacle_titles.append(last_obstacle.title)
 	
 func first_meet() -> void:
 	if Achievements.visited_locks.has(last_obstacle): return

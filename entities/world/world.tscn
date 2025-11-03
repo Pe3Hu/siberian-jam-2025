@@ -1,0 +1,178 @@
+[gd_scene load_steps=19 format=3 uid="uid://dv3qxhhhkmwam"]
+
+[ext_resource type="Script" uid="uid://cwb2m0okreutq" path="res://entities/world/world.gd" id="1_plka4"]
+[ext_resource type="PackedScene" uid="uid://bayw73ve8ui7r" path="res://entities/board/board.tscn" id="2_tytc4"]
+[ext_resource type="Shader" uid="uid://bserpv1k7h52d" path="res://entities/world/shader/Starfield Parallax Shader.gdshader" id="3_k6o36"]
+[ext_resource type="Texture2D" uid="uid://x2xxtv3m803i" path="res://entities/world/images/menu bg.bmp" id="4_mrp82"]
+[ext_resource type="Texture2D" uid="uid://dtxuobrqajvh1" path="res://entities/card/images/card_diamonds_A.png" id="5_db8ab"]
+[ext_resource type="Script" uid="uid://cersb4ybwexsy" path="res://entities/effects/vortex_effect.gd" id="5_mrp82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_db8ab"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl0m3"]
+shader = ExtResource("3_k6o36")
+shader_parameter/VIEWPORT_SIZE = Vector2(1280, 720)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7bg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2xjk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6o36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tytc4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrp82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi14s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftcbs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxgam"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl0m3"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_db8ab"]
+script = ExtResource("5_mrp82")
+metadata/_custom_type_script = "uid://cersb4ybwexsy"
+
+[node name="World" type="Node"]
+script = ExtResource("1_plka4")
+
+[node name="Board" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_tytc4")]
+world = NodePath("..")
+
+[node name="Menu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_db8ab")
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+material = SubResource("ShaderMaterial_hl0m3")
+layout_mode = 2
+texture = ExtResource("4_mrp82")
+
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EndButtons" type="HBoxContainer" parent="Menu/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 500
+alignment = 1
+
+[node name="MenuButton" type="Button" parent="Menu/Buttons/EndButtons"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e7bg0")
+text = "шдаюсь"
+
+[node name="AgainButton" type="Button" parent="Menu/Buttons/EndButtons"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s2xjk")
+text = "шанс"
+
+[node name="MenuButtons" type="VBoxContainer" parent="Menu/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Menu/Buttons/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k6o36")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tytc4")
+text = "вошел"
+
+[node name="ExitButton" type="Button" parent="Menu/Buttons/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mrp82")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi14s")
+text = "ушел"
+
+[node name="EndGame" type="PanelContainer" parent="Menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ftcbs")
+
+[node name="FinalCard" type="Sprite2D" parent="Menu/EndGame"]
+unique_name_in_owner = true
+position = Vector2(100, 123)
+rotation = -90.088104
+scale = Vector2(2, 2)
+texture = ExtResource("5_db8ab")
+
+[node name="HBoxContainer2" type="GridContainer" parent="Menu/EndGame"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Menu/EndGame/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rxgam")
+
+[node name="PanelContainer4" type="PanelContainer" parent="Menu/EndGame/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rxgam")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menu/EndGame/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rxgam")
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/EndGame/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hl0m3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/EndGame/HBoxContainer2/PanelContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[vortex center = 3 freq=5 off =0.4 radius = 80 ]cмертьмертьcертьcмртьcметcмер[/vortex]"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_db8ab")]
+
+[connection signal="pressed" from="Menu/Buttons/EndButtons/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Menu/Buttons/EndButtons/AgainButton" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="Menu/Buttons/MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/Buttons/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]

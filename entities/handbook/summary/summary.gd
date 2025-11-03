@@ -21,7 +21,7 @@ func  _ready() -> void:
 	
 func init_labels() -> void:
 	obstacle_resource = load("res://entities/card/resources/obstacle/{title}.tres".format({"title": title}))
-
+	
 	riddles.input = []
 	for input_key in obstacle_resource.lock.input_keys:
 		riddles.input.append(input_key.title)

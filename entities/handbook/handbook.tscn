@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bc6bmv1l5aflq" path="res://entities/handbook/slot/chevron/chevron.tscn" id="4_h046u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5jpf"]
-bg_color = Color(0.28, 0.28, 0.28, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0.5686275)
 
 [node name="Handbook" type="PanelContainer"]
 offset_right = 800.0
@@ -49,6 +49,11 @@ type = "input"
 layout_mode = 2
 size_flags_stretch_ratio = 1.0
 type = "ignore"
+
+[node name="Certificate1" parent="GridContainer/Slots" instance=ExtResource("2_wjgqs")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "мушкетер"
 
 [node name="Certificate2" parent="GridContainer/Slots" instance=ExtResource("2_wjgqs")]
 unique_name_in_owner = true
@@ -149,3 +154,11 @@ title = "девушка"
 unique_name_in_owner = true
 layout_mode = 2
 title = "хищник"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "штурм"

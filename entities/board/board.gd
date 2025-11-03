@@ -2,6 +2,8 @@ class_name Board
 extends Node2D
 
 
+@export var world: World
+
 @onready var handbook = $Handbook
 @onready var instruction = $Instruction
 @onready var card_pile_ui := $CardPileUI
@@ -19,30 +21,28 @@ extends Node2D
 ]
 @onready var obstacle_dropzone : = %CardDropzone_Obstacle
 @onready var assault_button : = %AssaultButton
+@onready var reset_button : = %ResetButton
+@onready var shake_timer : = %ShakeTimer
 
 var combo_cards: Array[CardUI]
 #var is_next_card_step: bool = false
 var output_keys: Array[KeyResource]
+var is_started: bool = false
+var is_restart: bool = false
+var shake_hit_effect: float = 0
 
 
 func _ready():
 	randomize()
-	card_pile_ui.draw(Settings.HAND_DEFAULT)
-	sort_hand()
+	#card_pile_ui.draw(Settings.HAND_DEFAULT)
+	#sort_hand()
 	
 	#await get_tree().create_timer(0.45).timeout
 	#next_obstacle()
 	
-func _on_draw_button_pressed():
-	card_pile_ui.draw(1)
-	
-	for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
-		card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
-	
-func _on_draw_3_button_pressed():
-	card_pile_ui.draw(3)
-
 func _on_sort_button_pressed():
+	#next_obstacle()
+	#world.show_end_game()
 	sort_hand()
 	
 func sort_hand() -> void:
@@ -54,6 +54,8 @@ func sort_hand() -> void:
 	)
 
 func _on_reset_button_pressed():
+	shake_timer.stop()
+	reset_shake()
 	return_active_cards()
 	
 func return_active_cards():
@@ -61,12 +63,6 @@ func return_active_cards():
 		if dropzone._held_cards.is_empty(): continue
 		var card = dropzone._held_cards.front()
 		card_pile_ui.place_in_hand(card)
-
-func _input(event) -> void:
-	if event is InputEventKey:
-		match event.keycode:
-			KEY_ESCAPE:
-				get_tree().quit()
 	
 func _on_show_button_pressed() -> void:
 	switch_hanbook()
@@ -75,11 +71,16 @@ func switch_hanbook() -> void:
 	handbook.visible = !handbook.visible
 	card_pile_ui.visible = !handbook.visible
 	assault_button.visible = !handbook.visible
+	instruction.visible = !handbook.visible
+	%SortButton.visible = !handbook.visible
+	%ResetButton.visible = !handbook.visible
 	
 	for drop_zone in all_dropzones:
 		drop_zone.visible = !handbook.visible
 	
 func _on_assault_button_pressed() -> void:
+	shake_timer.stop()
+	reset_shake()
 	var result = check_on_success()
 	
 	if result:
@@ -99,6 +100,9 @@ func _on_assault_button_pressed() -> void:
 	
 	await get_tree().create_timer(Settings.HANDBOOK_SHOWTIME_DELAY).timeout
 	pull_new_cards()
+	
+	if card_pile_ui._hand_pile.size() < 2:
+		world.show_end_game()
 	
 func check_on_success() -> bool:
 	var success = false
@@ -198,6 +202,8 @@ func discard_active_cards(is_combo_: bool = false) -> void:
 		card_pile_ui.place_in_hand(card)
 	
 func detect_combo_in_hand() -> void:
+	reset_shake()
+	shake_timer.start()
 	combo_cards.clear()
 	var key_options = get_current_obstacle_card().obstacle_resource.lock.input_keys
 	
@@ -228,6 +234,10 @@ func check_on_combo() -> bool:
 	return inplay_combo_cards.size() > 1
 	
 func local_victory() -> void:
+	for combo_card in combo_cards:
+		combo_card.is_combo = false
+		combo_card.apply_bbcode()
+	
 	get_trophy()
 	next_obstacle()
 	
@@ -266,3 +276,37 @@ func get_step_card() -> void:
 	
 func get_current_obstacle_card() -> ObstacleCardUI:
 	return card_pile_ui.obstacle_dropzone._held_cards.front()
+	
+func start() -> void:
+	if !is_started:
+		card_pile_ui.draw(Settings.HAND_DEFAULT)
+		card_pile_ui.obstacle_dropzone.add_card_obstacle()
+		is_started = true
+	
+func reset() -> void:
+	is_started = false
+	card_pile_ui.end_game_reset()
+	Settings.reset()
+	shake_timer.stop()
+	reset_shake()
+	start()
+	
+func _on_shake_timer_timeout() -> void:
+	shake_hit_effect += Settings.SHAKE_HIT_SHIFT
+	
+	if shake_hit_effect < 1.0:
+		shake_timer.start()
+		var current_hit_effect = reset_button.material.get_shader_parameter("hit_effect")
+		current_hit_effect += randf_range(Settings.SHAKE_HIT_SHIFT / 2, Settings.SHAKE_HIT_SHIFT)
+		assault_button.material.set_shader_parameter("hit_effect", current_hit_effect)
+		current_hit_effect = reset_button.material.get_shader_parameter("hit_effect")
+		current_hit_effect += randf_range(Settings.SHAKE_HIT_SHIFT / 4, Settings.SHAKE_HIT_SHIFT / 2)
+		reset_button.material.set_shader_parameter("hit_effect", current_hit_effect)
+	else:
+		reset_shake()
+		return_active_cards()
+	
+func reset_shake() -> void:
+	assault_button.material.set_shader_parameter("hit_effect", 0)
+	reset_button.material.set_shader_parameter("hit_effect", 0)
+	

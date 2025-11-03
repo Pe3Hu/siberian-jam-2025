@@ -33,6 +33,8 @@ func set_obstacle_resource(obstacle_resource_: ObstacleResource) -> void:
 			title_label.text = "[soldier duration]{text}[/soldier]".format({"text": obstacle_resource.title})
 		"мышь":
 			title_label.text = "[mouse freq=10 amp=3 off=0.1]{text}[/mouse]".format({"text": obstacle_resource.title})
+		"шиншила":
+			title_label.text = "[mouse freq=10 amp=3 off=0.1]{text}[/mouse]".format({"text": obstacle_resource.title})
 		"петушок":
 			title_label.text = "[bird freq=3 index=4 vertical_size=3]{text}[/bird]".format({"text": obstacle_resource.title})
 		"хищник":

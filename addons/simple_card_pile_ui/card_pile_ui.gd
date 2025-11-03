@@ -335,12 +335,12 @@ func reset_card_ui_z_index():
 func _reset_hand_pile_z_index():
 	for i in _hand_pile.size():
 		var card_ui = _hand_pile[i]
-		card_ui.z_index = 1000 + i
+		card_ui.z_index = 100 + i
 		card_ui.move_to_front()
 		if card_ui.mouse_is_hovering:
-			card_ui.z_index = 2000 + i
+			card_ui.z_index = 200 + i
 		if card_ui.is_clicked:
-			card_ui.z_index = 3000 + i
+			card_ui.z_index = 300 + i
 
 func is_card_ui_in_hand(card_ui):
 	return _hand_pile.filter(func(c): return c == card_ui).size()
@@ -365,6 +365,8 @@ func draw(num_cards := 1):
 		if _draw_pile.size():
 			set_card_pile(_draw_pile[_draw_pile.size() - 1], Piles.hand_pile)
 		elif shuffle_discard_on_empty_draw and _discard_pile.size():
+			#board.you_lose()
+			break
 			var dupe_discard = _discard_pile.duplicate()
 			for c in dupe_discard: # you can't remove things from the thing you loop!!
 				set_card_pile(c, Piles.draw_pile)
@@ -403,6 +405,8 @@ func _get_card_data_by_nice_name(nice_name : String):
 	for json_data in card_database:
 		if json_data.nice_name == nice_name:
 			return json_data
+	
+	get_tree().quit()
 	return null
 
 func place_in_hand(card_: CardUI) -> void:
@@ -433,3 +437,16 @@ func _create_obstacle_card_ui(json_data : Dictionary):
 	
 func get_hand_cards() -> Array:
 	return _hand_pile
+	
+func end_game_reset() -> void:
+	#for _i in range(_draw_pile.size()-1, -1, -1):
+		#var card = _draw_pile.pop_back()
+		#remove_card_from_game(card)
+	#for _i in range(_hand_pile.size()-1, -1, -1):
+		#var card = _hand_pile.pop_back()
+		#remove_card_from_game(card)
+	#for _i in range(_discard_pile.size()-1, -1, -1):
+		#var card = _discard_pile.pop_back()
+		#remove_card_from_game(card)
+	_reset_card_collection()
+	

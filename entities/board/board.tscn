@@ -1,19 +1,53 @@
-[gd_scene load_steps=14 format=3 uid="uid://bayw73ve8ui7r"]
+[gd_scene load_steps=24 format=3 uid="uid://bayw73ve8ui7r"]
 
 [ext_resource type="Script" uid="uid://clj64nhxgfcu1" path="res://entities/board/board.gd" id="1_yyni2"]
 [ext_resource type="PackedScene" uid="uid://s2pdpwjk650m" path="res://entities/handbook/handbook.tscn" id="2_cfpx4"]
 [ext_resource type="Script" uid="uid://ctalob28q7i63" path="res://entities/board/dropzone/dropzone_discard.gd" id="2_t5ja0"]
+[ext_resource type="Shader" uid="uid://t3m32g50alsm" path="res://entities/world/shader/Pixelated Warped Fractal Noise.gdshader" id="2_ynpsh"]
 [ext_resource type="Texture2D" uid="uid://4mfqcbvhcbmk" path="res://assets/1x1_#ffffffff.png" id="3_7373t"]
+[ext_resource type="Texture2D" uid="uid://x2xxtv3m803i" path="res://entities/world/images/menu bg.bmp" id="3_nv1xt"]
+[ext_resource type="Texture2D" uid="uid://boduc2sibiw6x" path="res://entities/world/images/buttons small/шоу.png" id="4_86uwj"]
 [ext_resource type="Script" uid="uid://vnjr3cixrnoc" path="res://entities/board/dropzone/dropzone_any.gd" id="4_n0vul"]
+[ext_resource type="Shader" uid="uid://dsdwu25ocaj24" path="res://entities/button/glitch.gdshader" id="4_nv1xt"]
 [ext_resource type="Script" uid="uid://ccyiwa8q853n" path="res://entities/board/dropzone/dropzone_obstacle.gd" id="5_7n3tm"]
+[ext_resource type="Texture2D" uid="uid://bfydrtn3ltyeb" path="res://entities/world/images/buttons small/шафл.png" id="5_d6mq2"]
 [ext_resource type="Script" uid="uid://fgdfmt6v2f8n" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="5_dbdlv"]
+[ext_resource type="Texture2D" uid="uid://brlc3jukig5ja" path="res://entities/world/images/штурм.png" id="5_k6ytu"]
 [ext_resource type="PackedScene" uid="uid://bs2vgjwuarxm5" path="res://entities/card/card_ui.tscn" id="6_1w52g"]
 [ext_resource type="PackedScene" uid="uid://bsewrrheailuf" path="res://entities/card/obstacle/obstacle_card_ui.tscn" id="6_56qjt"]
+[ext_resource type="Texture2D" uid="uid://eh7cyp80lybb" path="res://entities/world/images/buttons small/штандарт.png" id="6_egn8s"]
 [ext_resource type="PackedScene" uid="uid://0ng376fah6n8" path="res://entities/instruction/instruction.tscn" id="9_46inl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6ytu"]
+shader = ExtResource("2_ynpsh")
+shader_parameter/speed = 0.1
+shader_parameter/pixelation = 8.0
+shader_parameter/zoom = 2.0
+shader_parameter/gradient_pixelation = 0.2
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.24
+shader_parameter/color_mid_threshold = 0.48
+shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
+shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_oqbkv"]
 Button/font_sizes/font_size = 12
 RichTextLabel/font_sizes/normal_font_size = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86uwj"]
+shader = ExtResource("4_nv1xt")
+shader_parameter/hit_effect = 0.0
+shader_parameter/shake_intensity = 10.0
+shader_parameter/flash_speed = 30.0
+shader_parameter/flash_color = Color(0, 1, 0.3333335, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_faw45"]
+shader = ExtResource("4_nv1xt")
+shader_parameter/hit_effect = 0.0
+shader_parameter/shake_intensity = 10.0
+shader_parameter/flash_speed = 30.0
+shader_parameter/flash_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_ayyaa"]
 _limits = [-15.0, 15.0, 0.0, 1.0]
@@ -28,6 +62,18 @@ point_count = 3
 [node name="Board" type="Node2D"]
 script = ExtResource("1_yyni2")
 
+[node name="BGTextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_k6ytu")
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -153.0
+offset_right = 1552.0
+offset_bottom = 894.0
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_nv1xt")
+
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -35,43 +81,41 @@ theme = SubResource("Theme_oqbkv")
 
 [node name="HBoxContainer" type="GridContainer" parent="Buttons"]
 layout_mode = 0
-offset_left = 1302.0
-offset_top = 28.0
-offset_right = 1746.0
-offset_bottom = 269.0
-columns = 2
+offset_left = 1307.0
+offset_top = 21.0
+offset_right = 1457.0
+offset_bottom = 173.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -8
 metadata/_edit_group_ = true
 
-[node name="DrawButton" type="Button" parent="Buttons/HBoxContainer"]
-layout_mode = 2
-text = "Draw"
-
-[node name="Draw3Button" type="Button" parent="Buttons/HBoxContainer"]
-layout_mode = 2
-text = "Draw 3"
-
-[node name="SortButton" type="Button" parent="Buttons/HBoxContainer"]
-layout_mode = 2
-text = "Sort Hand"
-
-[node name="ResetButton" type="Button" parent="Buttons/HBoxContainer"]
-layout_mode = 2
-text = "Reset"
-
-[node name="ShowButton" type="Button" parent="Buttons/HBoxContainer"]
+[node name="ShowButton" type="TextureButton" parent="Buttons/HBoxContainer"]
 z_index = 4096
 layout_mode = 2
-text = "Шоу"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_86uwj")
 
-[node name="AssaultButton" type="Button" parent="Buttons"]
+[node name="SortButton" type="TextureButton" parent="Buttons/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_d6mq2")
+
+[node name="ResetButton" type="TextureButton" parent="Buttons/HBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_86uwj")
+layout_mode = 2
+texture_normal = ExtResource("6_egn8s")
+
+[node name="AssaultButton" type="TextureButton" parent="Buttons"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_faw45")
 layout_mode = 0
 offset_left = 1143.0
 offset_top = 406.0
-offset_right = 1256.0
-offset_bottom = 447.0
-theme_override_font_sizes/font_size = 24
-text = "штурм"
+offset_right = 1301.0
+offset_bottom = 449.0
+texture_normal = ExtResource("5_k6ytu")
 
 [node name="CardDropzone1" type="Control" parent="." node_paths=PackedStringArray("board", "card_pile_ui")]
 unique_name_in_owner = true
@@ -181,7 +225,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_7373t")
 
-[node name="CardDropzone_Obstacle" type="Control" parent="." node_paths=PackedStringArray("instruction", "card_pile_ui")]
+[node name="CardDropzone_Obstacle" type="Control" parent="." node_paths=PackedStringArray("board", "instruction", "card_pile_ui")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
@@ -190,6 +234,7 @@ offset_top = 160.0
 offset_right = 1461.0
 offset_bottom = 400.0
 script = ExtResource("5_7n3tm")
+board = NodePath("..")
 instruction = NodePath("../Instruction")
 card_pile_ui = NodePath("../CardPileUI")
 metadata/_edit_group_ = true
@@ -215,6 +260,7 @@ extended_card_ui = ExtResource("6_1w52g")
 extended_card_obstacle_ui = ExtResource("6_56qjt")
 obstacle_dropzone = NodePath("../CardDropzone_Obstacle")
 discard_pile_position = Vector2(1294, 475)
+click_draw_pile_to_draw = false
 draw_pile_layout = 2
 hand_rotation_curve = SubResource("Curve_ayyaa")
 hand_vertical_curve = SubResource("Curve_afhc1")
@@ -241,9 +287,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 board = NodePath("..")
 
-[connection signal="pressed" from="Buttons/HBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]
-[connection signal="pressed" from="Buttons/HBoxContainer/Draw3Button" to="." method="_on_draw_3_button_pressed"]
+[node name="ShakeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="pressed" from="Buttons/HBoxContainer/ShowButton" to="." method="_on_show_button_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/SortButton" to="." method="_on_sort_button_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="Buttons/HBoxContainer/ShowButton" to="." method="_on_show_button_pressed"]
 [connection signal="pressed" from="Buttons/AssaultButton" to="." method="_on_assault_button_pressed"]
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_shake_timer_timeout"]
