@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc6bmv1l5aflq"]
+
+[ext_resource type="Shader" uid="uid://bp5mawopo2wm0" path="res://entities/handbook/slot/chevron/gradient.gdshader" id="1_1haim"]
+[ext_resource type="Script" uid="uid://bwh5vbmopth5v" path="res://entities/handbook/slot/chevron/chevron.gd" id="1_qyt5n"]
+[ext_resource type="Texture2D" uid="uid://6hdx6oc6oar0" path="res://entities/handbook/slot/chevron/images/input.png" id="2_lskfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pvp50"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o070q"]
+shader = ExtResource("1_1haim")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = -91.09999867528332
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 0.0
+shader_parameter/color_start = Color(0.116666794, 1, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(1, 1, 1, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0.022200001, 0.37, 0.09755667, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = false
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.1
+
+[node name="Chevron" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pvp50")
+script = ExtResource("1_qyt5n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o070q")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_lskfr")
+stretch_mode = 2

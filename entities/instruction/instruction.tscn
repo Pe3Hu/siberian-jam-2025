@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ng376fah6n8"]
+
+[ext_resource type="Script" uid="uid://b8vl32g1krsnf" path="res://entities/instruction/instruction.gd" id="1_y3t2y"]
+[ext_resource type="Texture2D" uid="uid://b41bjw8mncuu" path="res://entities/instruction/images/equal.png" id="2_bk5em"]
+[ext_resource type="Texture2D" uid="uid://cepjmcx3dryym" path="res://entities/instruction/images/plus.png" id="2_m05lw"]
+[ext_resource type="Texture2D" uid="uid://b1l40sag4l1me" path="res://entities/instruction/images/question.png" id="3_eu0li"]
+[ext_resource type="Texture2D" uid="uid://d4f4dnflyeo2y" path="res://entities/instruction/images/less.png" id="4_eu0li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hdvh"]
+
+[node name="Instruction" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8hdvh")
+script = ExtResource("1_y3t2y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Blackjack" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="BlackjackFact" type="HBoxContainer" parent="VBoxContainer/Blackjack"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Blackjack/BlackjackFact"]
+layout_mode = 2
+texture = ExtResource("2_m05lw")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Blackjack/BlackjackFact"]
+layout_mode = 2
+texture = ExtResource("2_m05lw")
+
+[node name="BlackjackMystery" type="HBoxContainer" parent="VBoxContainer/Blackjack"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Blackjack/BlackjackMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Blackjack/BlackjackMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")
+
+[node name="Street" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="StreetFactMystery" type="HBoxContainer" parent="VBoxContainer/Street"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Street/StreetFactMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Street/StreetFactMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")
+
+[node name="StreetFact" type="HBoxContainer" parent="VBoxContainer/Street"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Street/StreetFact"]
+layout_mode = 2
+texture = ExtResource("4_eu0li")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Street/StreetFact"]
+layout_mode = 2
+texture = ExtResource("4_eu0li")
+
+[node name="Flash" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="FlashFact" type="HBoxContainer" parent="VBoxContainer/Flash"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Flash/FlashFact"]
+layout_mode = 2
+texture = ExtResource("2_bk5em")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Flash/FlashFact"]
+layout_mode = 2
+texture = ExtResource("2_bk5em")
+
+[node name="FlashFactMystery" type="HBoxContainer" parent="VBoxContainer/Flash"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Flash/FlashFactMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Flash/FlashFactMystery"]
+layout_mode = 2
+texture = ExtResource("3_eu0li")

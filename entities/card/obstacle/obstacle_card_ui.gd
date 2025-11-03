@@ -1,13 +1,18 @@
+class_name ObstacleCardUI
 extends CardUI
 
 
 
 @onready var title_label := %TitleLabel
+@onready var summary: Summary = %Summary
+
 
 
 func set_obstacle_resource(obstacle_resource_: ObstacleResource) -> void:
 	obstacle_resource = obstacle_resource_
 	title_label.text = obstacle_resource.title
+	summary.title = obstacle_resource.title
+	summary.update_labels()
 	
 	match obstacle_resource_.title:
 		"волшебница":
@@ -39,10 +44,3 @@ func set_obstacle_resource(obstacle_resource_: ObstacleResource) -> void:
 		"шут":
 			title_label.text = "[slinky freq=2 grade=5]{text}[/slinky]".format({"text": obstacle_resource.title})
 		
-		
-			#title_label.text = "[s]{text}[/s]".format({"text": obstacle_resource.title})
-		
-	
-	
-	
-	#title_label.text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]{title}[/pulse]".format({"title": obstacle_resource.title})

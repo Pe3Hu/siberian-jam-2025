@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bsewrrheailuf"]
+[gd_scene load_steps=24 format=3 uid="uid://bsewrrheailuf"]
 
 [ext_resource type="Script" uid="uid://gaw23fbx7yug" path="res://entities/card/obstacle/obstacle_card_ui.gd" id="1_hio5a"]
 [ext_resource type="Texture2D" uid="uid://ci1r1djmakryb" path="res://entities/card/images/card_back.png" id="2_o3a18"]
 [ext_resource type="Texture2D" uid="uid://dtxuobrqajvh1" path="res://entities/card/images/card_diamonds_A.png" id="3_8o4st"]
+[ext_resource type="PackedScene" uid="uid://cm75m425ck8kd" path="res://entities/handbook/summary/summary.tscn" id="4_mdghr"]
 [ext_resource type="Script" uid="uid://b7g8e3aj0l04l" path="res://entities/effects/baby_effect.gd" id="4_xxdg7"]
 [ext_resource type="Script" uid="uid://cb7obf3qffyw5" path="res://entities/effects/thief_effect.gd" id="5_kv5ys"]
 [ext_resource type="Script" uid="uid://bbfqcpvf1ylm3" path="res://entities/effects/soldier_effect.gd" id="6_1082n"]
@@ -89,13 +90,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
+[node name="Summary" parent="Frontface/MarginContainer" instance=ExtResource("4_mdghr")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
 [node name="PanelContainer" type="PanelContainer" parent="Frontface/MarginContainer"]
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(125, 60)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -106,6 +113,7 @@ unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 19
 bbcode_enabled = true
 text = "[thief duration=5]мошенник[/thief]"
 horizontal_alignment = 2

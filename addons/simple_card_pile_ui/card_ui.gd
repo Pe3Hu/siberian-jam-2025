@@ -12,6 +12,7 @@ signal card_dropped(card: CardUI)
 @onready var backface = $Backface
 
 
+@export var card_pile_ui: CardPileUI
 @export var card_data : CardUIData
 var obstacle_resource: ObstacleResource
 

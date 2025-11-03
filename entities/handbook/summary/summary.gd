@@ -1,4 +1,4 @@
-class_name Certificate
+class_name Summary
 extends PanelContainer
 
 
@@ -9,14 +9,11 @@ extends PanelContainer
 
 var obstacle_resource: ObstacleResource
 var riddles: Dictionary
-var is_visited: bool = false#false
-var new_words: Array[String]
-var learned_words: Array[String]
+var is_visited: bool = true#false
 
-@onready var title_label: = %TitleLabel
-@onready var output_label: = %OutputLabel
-@onready var input_label: = %InputLabel
-@onready var ignore_label: = %IgnoreLabel
+@onready var output_label = %OutputLabel
+@onready var input_label  = %InputLabel
+@onready var ignore_label = %IgnoreLabel
 
 
 func  _ready() -> void:
@@ -37,22 +34,20 @@ func init_labels() -> void:
 	for ignore_key in obstacle_resource.lock.ignore_keys:
 		riddles.ignore.append(ignore_key.title)
 	
+	for key_resource in Achievements.key_input_lock:
+		if Achievements.key_input_lock[key_resource].has(obstacle_resource.lock):
+			riddles.input.erase(key_resource.title)
+	
+	for key_resource in Achievements.key_output_lock:
+		if Achievements.key_output_lock[key_resource].has(obstacle_resource.lock):
+			riddles.output.erase(key_resource.title)
+	
+	for key_resource in Achievements.key_ignore_lock:
+		if Achievements.key_ignore_lock[key_resource].has(obstacle_resource.lock):
+			riddles.ignore.erase(key_resource.title)
+	
 func update_labels() -> void:
 	var mystery = "???"
-	
-	for riddle in riddles:
-		riddles[riddle] = riddles[riddle].filter(func (a): return !new_words.has(a))
-		#for new_word in new_words:
-			#if riddles[riddle].has(new_word):
-				#riddles[riddle].ease(new_word)
-	
-	if new_words.has(obstacle_resource.title):
-		title_label.text = "[thief duration=2]{text}[/thief]".format({"text": obstacle_resource.title})
-	else:
-		if is_visited:
-			title_label.text = obstacle_resource.title
-		else:
-			title_label.text = mystery
 	
 	for key in riddles.keys():
 		var text = ""
@@ -64,13 +59,8 @@ func update_labels() -> void:
 		for _i in riddles[key].size():
 			parts.append(mystery)
 		
-		if !new_words.is_empty():
-			pass
 		for part in parts:
-			if new_words.has(part):
-				text += "[p][thief duration=2]{text}[/thief][/p]".format({"text": part})
-			else:
-				text += str("[p]",part,"[/p]")
+			text += str("[p]",part,"[/p]")
 		
 		var label_path = "%" + key.capitalize() + "Label"
 		var label = get_node(label_path)
@@ -79,13 +69,3 @@ func update_labels() -> void:
 		var panel = get_node(panel_path)
 		panel.custom_minimum_size.y = parts.size() * 22
 		panel.size = panel.custom_minimum_size
-	
-
-func learn_new_words() -> void:
-	learned_words.append_array(new_words)
-	new_words.clear()
-	
-func add_new_word(new_word_: String) -> void:
-	if learned_words.has(new_word_): return
-	if new_words.has(new_word_): return
-	new_words.append(new_word_)

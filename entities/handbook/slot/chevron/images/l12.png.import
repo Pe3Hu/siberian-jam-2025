@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn7dqgajtcdnv"
-path="res://.godot/imported/l3.png-37aa3055465b420f540a0be708f9ca7f.ctex"
+uid="uid://bj3viyohqc2q2"
+path="res://.godot/imported/l12.png-78d80533227f23fcbf352ce9502c22e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/handbook/slot/images/l3.png"
-dest_files=["res://.godot/imported/l3.png-37aa3055465b420f540a0be708f9ca7f.ctex"]
+source_file="res://entities/handbook/slot/chevron/images/l12.png"
+dest_files=["res://.godot/imported/l12.png-78d80533227f23fcbf352ce9502c22e5.ctex"]
 
 [params]
 

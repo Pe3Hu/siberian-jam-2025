@@ -4,24 +4,40 @@ extends CardUI
 var key_resource: KeyResource
 
 @onready var title_label := %TitleLabel
+@export var is_combo: = false:
+	set(value_):
+		is_combo = value_
+		apply_bbcode()
 
 
 func _ready():
 	super()
 	
 func roll_key_resource() -> void:
+	if key_resource != null: return
+	if !card_pile_ui.board.output_keys.is_empty():
+		key_resource = card_pile_ui.board.output_keys[0]
+		card_pile_ui.board.output_keys.erase(key_resource)
+		apply_bbcode()
+		return
 	var stock_path = "запас "
 	
 	match card_data.suit:
 		"H":
 			stock_path += "звук"
-		"D":
+		"C":
 			stock_path += "аромат"
 		"S":
 			stock_path += "прикосновение"
 	
 	var stock = load("res://entities/deck/stock/" + stock_path + ".tres")
 	generate_key(stock)
+	apply_bbcode()
+	
+func apply_bbcode() -> void:
+	if !is_combo:
+		title_label.text = key_resource.title
+		return
 	
 	var bbcode_str = ""
 	var part = ""

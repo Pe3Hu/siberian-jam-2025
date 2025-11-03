@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="StockResource" load_steps=12 format=3 uid="uid://bf64dx3loimk8"]
+[gd_resource type="Resource" script_class="StockResource" load_steps=12 format=3 uid="uid://cp10rdha81sxk"]
 
-[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_fasiv"]
-[ext_resource type="Resource" uid="uid://cahtcjynjvx4y" path="res://entities/card/resources/key/key_7.tres" id="2_wo88v"]
-[ext_resource type="Resource" uid="uid://76pidq1f2ffr" path="res://entities/card/resources/key/key_8.tres" id="3_intvh"]
-[ext_resource type="Resource" uid="uid://dimtqa5h7kf4y" path="res://entities/card/resources/key/key_39.tres" id="4_p4q7i"]
-[ext_resource type="Resource" uid="uid://dpgxp0s3gfgnj" path="res://entities/card/resources/key/key_2.tres" id="5_v1icd"]
-[ext_resource type="Resource" uid="uid://bdwshlpecgt44" path="res://entities/card/resources/key/key_3.tres" id="6_bgu13"]
-[ext_resource type="Resource" uid="uid://bxpl4fdfaffme" path="res://entities/card/resources/key/key_5.tres" id="7_pyorb"]
-[ext_resource type="Resource" uid="uid://c420ulyj7swkm" path="res://entities/card/resources/key/key_6.tres" id="8_oyoso"]
-[ext_resource type="Resource" uid="uid://51wx8t1d3648" path="res://entities/card/resources/key/key_9.tres" id="9_gqy6h"]
-[ext_resource type="Resource" uid="uid://7x7paipim7as" path="res://entities/card/resources/key/key_10.tres" id="10_6e5x5"]
-[ext_resource type="Script" uid="uid://cpdik5mlb0lo7" path="res://entities/deck/stock/stock_resource.gd" id="11_yhqih"]
+[ext_resource type="Script" uid="uid://bw8sipxsuhu5x" path="res://entities/card/resources/key/key_resource.gd" id="1_otybp"]
+[ext_resource type="Resource" uid="uid://cahtcjynjvx4y" path="res://entities/card/resources/key/key_7.tres" id="2_503ox"]
+[ext_resource type="Resource" uid="uid://76pidq1f2ffr" path="res://entities/card/resources/key/key_8.tres" id="3_m5427"]
+[ext_resource type="Resource" uid="uid://dimtqa5h7kf4y" path="res://entities/card/resources/key/key_39.tres" id="4_kyeut"]
+[ext_resource type="Resource" uid="uid://dpgxp0s3gfgnj" path="res://entities/card/resources/key/key_2.tres" id="5_e2nop"]
+[ext_resource type="Resource" uid="uid://bdwshlpecgt44" path="res://entities/card/resources/key/key_3.tres" id="6_bd8mp"]
+[ext_resource type="Resource" uid="uid://bxpl4fdfaffme" path="res://entities/card/resources/key/key_5.tres" id="7_sy1mp"]
+[ext_resource type="Resource" uid="uid://c420ulyj7swkm" path="res://entities/card/resources/key/key_6.tres" id="8_ou6kh"]
+[ext_resource type="Resource" uid="uid://51wx8t1d3648" path="res://entities/card/resources/key/key_9.tres" id="9_2pcea"]
+[ext_resource type="Resource" uid="uid://7x7paipim7as" path="res://entities/card/resources/key/key_10.tres" id="10_h6g8h"]
+[ext_resource type="Script" uid="uid://cpdik5mlb0lo7" path="res://entities/deck/stock/stock_resource.gd" id="11_80xnf"]
 
 [resource]
-script = ExtResource("11_yhqih")
-keys = Array[ExtResource("1_fasiv")]([ExtResource("2_wo88v"), ExtResource("2_wo88v"), ExtResource("3_intvh"), ExtResource("3_intvh"), ExtResource("4_p4q7i"), ExtResource("4_p4q7i"), ExtResource("5_v1icd"), ExtResource("6_bgu13"), ExtResource("7_pyorb"), ExtResource("8_oyoso"), ExtResource("9_gqy6h"), ExtResource("10_6e5x5")])
+script = ExtResource("11_80xnf")
+keys = Array[ExtResource("1_otybp")]([ExtResource("2_503ox"), ExtResource("2_503ox"), ExtResource("3_m5427"), ExtResource("3_m5427"), ExtResource("4_kyeut"), ExtResource("4_kyeut"), ExtResource("5_e2nop"), ExtResource("6_bd8mp"), ExtResource("7_sy1mp"), ExtResource("8_ou6kh"), ExtResource("9_2pcea"), ExtResource("10_h6g8h")])
 metadata/_custom_type_script = "uid://cpdik5mlb0lo7"

@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("2_8ahu7")
 title = "хищник"
+type = "животное"
 lock = ExtResource("1_dc8dr")
 metadata/_custom_type_script = "uid://badgjwq5aujn"

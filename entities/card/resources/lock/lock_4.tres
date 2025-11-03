@@ -12,7 +12,7 @@
 
 [resource]
 script = ExtResource("2_2fsmv")
-input_keys = Array[ExtResource("1_keyf0")]([ExtResource("2_7tqa7"), ExtResource("3_txrgg"), ExtResource("4_eu8nt")])
+input_keys = Array[ExtResource("1_keyf0")]([ExtResource("4_eu8nt"), ExtResource("2_7tqa7"), ExtResource("3_txrgg")])
 output_keys = Array[ExtResource("1_keyf0")]([ExtResource("5_5hfn4")])
 ignore_keys = Array[ExtResource("1_keyf0")]([ExtResource("2_5hfn4"), ExtResource("3_xfhso"), ExtResource("4_kikab")])
 metadata/_custom_type_script = "uid://cfdww65wbruld"

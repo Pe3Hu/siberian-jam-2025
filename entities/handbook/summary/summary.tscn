@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm75m425ck8kd"]
+
+[ext_resource type="Script" uid="uid://lxs8i6sp7sn5" path="res://entities/handbook/summary/summary.gd" id="1_v3261"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72wvm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r704"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oicax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wttuy"]
+
+[node name="Summary" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_72wvm")
+script = ExtResource("1_v3261")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Input" type="PanelContainer" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 2.5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8r704")
+
+[node name="InputCassicLabel" type="Label" parent="VBox/Input"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.18383336, 1, 0.17000002, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "***"
+vertical_alignment = 1
+
+[node name="InputLabel" type="RichTextLabel" parent="VBox/Input"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.89, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+bbcode_enabled = true
+text = "***"
+vertical_alignment = 2
+
+[node name="Output" type="PanelContainer" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oicax")
+
+[node name="OutputLabel" type="RichTextLabel" parent="VBox/Output"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.89, 0.87516665, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+bbcode_enabled = true
+text = "***"
+vertical_alignment = 2
+
+[node name="OutputClassicLabel" type="Label" parent="VBox/Output"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.17000002, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "***"
+vertical_alignment = 1
+
+[node name="Ignore" type="PanelContainer" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(122, 35)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wttuy")
+
+[node name="IgnoreLabel" type="RichTextLabel" parent="VBox/Ignore"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.89, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+bbcode_enabled = true
+text = "***"
+vertical_alignment = 2
+
+[node name="IgnoreClassicLabel" type="Label" parent="VBox/Ignore"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.73, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "***"
+vertical_alignment = 1

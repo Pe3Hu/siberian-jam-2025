@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4twhitwykhqe"
-path="res://.godot/imported/epiphany.png-5a327b6f19203fffa3a3ed6c35628005.ctex"
+uid="uid://6hdx6oc6oar0"
+path="res://.godot/imported/input.png-2f63121df7ea323e4a95624596ba7bc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/handbook/slot/images/epiphany.png"
-dest_files=["res://.godot/imported/epiphany.png-5a327b6f19203fffa3a3ed6c35628005.ctex"]
+source_file="res://entities/handbook/slot/chevron/images/input.png"
+dest_files=["res://.godot/imported/input.png-2f63121df7ea323e4a95624596ba7bc6.ctex"]
 
 [params]
 

@@ -25,6 +25,7 @@ enum PilesCardLayouts {
 	down
 }
 
+@export var board: Board
 @export_file("*.json") var json_card_database_path : String
 @export_file("*.json") var json_card_collection_path : String
 @export var extended_card_ui : PackedScene
@@ -395,6 +396,7 @@ func _create_card_ui(json_data : Dictionary):
 	card_ui.connect("card_clicked", func(c_ui): emit_signal("card_clicked", c_ui))
 	card_ui.connect("card_dropped", func(c_ui): emit_signal("card_dropped", c_ui))
 	add_child(card_ui)
+	card_ui.card_pile_ui = self
 	return card_ui
 
 func _get_card_data_by_nice_name(nice_name : String):
@@ -405,6 +407,9 @@ func _get_card_data_by_nice_name(nice_name : String):
 
 func place_in_hand(card_: CardUI) -> void:
 	set_card_pile(card_, Piles.hand_pile)
+	
+func place_in_discard(card_: CardUI) -> void:
+	set_card_pile(card_, Piles.discard_pile)
 	
 func _create_obstacle_card_ui(json_data : Dictionary):
 	var card_ui = extended_card_obstacle_ui.instantiate()
@@ -423,5 +428,8 @@ func _create_obstacle_card_ui(json_data : Dictionary):
 	card_ui.connect("card_clicked", func(c_ui): emit_signal("card_clicked", c_ui))
 	card_ui.connect("card_dropped", func(c_ui): emit_signal("card_dropped", c_ui))
 	add_child(card_ui)
+	card_ui.card_pile_ui = self
 	return card_ui
 	
+func get_hand_cards() -> Array:
+	return _hand_pile

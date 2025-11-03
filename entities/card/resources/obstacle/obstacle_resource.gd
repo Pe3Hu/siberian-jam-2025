@@ -3,5 +3,5 @@ extends Resource
 
 
 @export var title: String = ""
-@export_enum("human", "beast") var type: String = "human"
+@export_enum("человек", "животное") var type: String = "человек"
 @export var lock: LockResource
