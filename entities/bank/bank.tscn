@@ -1,44 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://mhvnxqjo5wug"]
+[gd_scene load_steps=7 format=3 uid="uid://mhvnxqjo5wug"]
 
 [ext_resource type="Script" uid="uid://ceuxvujuhwlnm" path="res://entities/bank/bank.gd" id="1_ewxrm"]
+[ext_resource type="Texture2D" uid="uid://x2xxtv3m803i" path="res://entities/world/images/menu bg.bmp" id="2_0dgyn"]
+[ext_resource type="Shader" uid="uid://bjyc136gjs6a2" path="res://entities/bank/pulse.gdshader" id="2_fim1i"]
 [ext_resource type="PackedScene" uid="uid://cyr4dfy8qnwh6" path="res://entities/token/token.tscn" id="2_v5rbr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5rbr"]
+bg_color = Color(0.29586652, 0.29586652, 0.29586637, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pabsv"]
+shader = ExtResource("2_fim1i")
+shader_parameter/circle_width = 0.15
+shader_parameter/wait_time = 1.0000000149012
+shader_parameter/speed = 1.0
+shader_parameter/alpha_boost = 2.0
+
 [node name="Bank" type="PanelContainer"]
+custom_minimum_size = Vector2(130, 0)
+offset_right = 129.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5rbr")
 script = ExtResource("1_ewxrm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PulseTexture" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_pabsv")
+layout_mode = 0
+offset_left = -199.0
+offset_top = -236.0
+offset_right = 313.0
+offset_bottom = 276.0
+texture = ExtResource("2_0dgyn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
 
-[node name="CoreTokens" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="ActionToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+[node name="SilentToken" parent="VBoxContainer" instance=ExtResource("2_v5rbr")]
 unique_name_in_owner = true
 layout_mode = 2
-core = "action"
-value_int = 3
+value_int = 10
 
-[node name="CreditToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
+[node name="PulseTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
-core = "credit"
-value_int = 0
+wait_time = 4.5
+one_shot = true
 
-[node name="ArmorToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
-unique_name_in_owner = true
-layout_mode = 2
-core = "armor"
-value_int = 0
-
-[node name="HealthToken" parent="VBoxContainer/CoreTokens" instance=ExtResource("2_v5rbr")]
-unique_name_in_owner = true
-layout_mode = 2
-core = "health"
-value_int = 9
-
-[node name="DamageTokens" type="HBoxContainer" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
+[connection signal="timeout" from="PulseTimer" to="." method="_on_pulse_timer_timeout"]

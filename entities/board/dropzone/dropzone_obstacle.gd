@@ -26,13 +26,20 @@ func add_card_obstacle(is_same_: = false) -> void:
 	var wall = load("res://entities/deck/wall/все.tres")
 	
 	if !is_same_:
-		Settings.roll_last_obstacle_index()
+		set_last_obstacle_index_from_gatekeeper()
+		#Settings.roll_last_obstacle_index()
 	
 	card_obstacle.set_obstacle_resource(wall.obstacles[Settings.last_obstacle_index])
 #	else:
 		#var options = wall.obstacles.filter(func (a): return !Achievements.visited_locks.has(a))
 		#card_obstacle.set_obstacle_resource(options.pick_random())
 	
-	await get_tree().create_timer(0.15).timeout
+	await get_tree().create_timer(0.1).timeout
 	card_obstacle.visible = true
 	instruction.type = card_obstacle.obstacle_resource.type
+	board.detect_lose_hand()
+	
+func set_last_obstacle_index_from_gatekeeper() -> void:
+	var obstacle_resource = board.world.maze.current_gatekeeper.obstacle_resource
+	var wall = load("res://entities/deck/wall/все.tres")
+	Settings.last_obstacle_index = wall.obstacles.find(obstacle_resource)

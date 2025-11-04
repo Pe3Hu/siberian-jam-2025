@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bayw73ve8ui7r"]
+[gd_scene load_steps=31 format=3 uid="uid://bayw73ve8ui7r"]
 
 [ext_resource type="Script" uid="uid://clj64nhxgfcu1" path="res://entities/board/board.gd" id="1_yyni2"]
 [ext_resource type="PackedScene" uid="uid://s2pdpwjk650m" path="res://entities/handbook/handbook.tscn" id="2_cfpx4"]
@@ -6,17 +6,22 @@
 [ext_resource type="Shader" uid="uid://t3m32g50alsm" path="res://entities/world/shader/Pixelated Warped Fractal Noise.gdshader" id="2_ynpsh"]
 [ext_resource type="Texture2D" uid="uid://4mfqcbvhcbmk" path="res://assets/1x1_#ffffffff.png" id="3_7373t"]
 [ext_resource type="Texture2D" uid="uid://x2xxtv3m803i" path="res://entities/world/images/menu bg.bmp" id="3_nv1xt"]
-[ext_resource type="Texture2D" uid="uid://boduc2sibiw6x" path="res://entities/world/images/buttons small/шоу.png" id="4_86uwj"]
+[ext_resource type="Texture2D" uid="uid://dqbiatamaereo" path="res://entities/world/images/buttons black/шоу.png" id="4_86uwj"]
 [ext_resource type="Script" uid="uid://vnjr3cixrnoc" path="res://entities/board/dropzone/dropzone_any.gd" id="4_n0vul"]
 [ext_resource type="Shader" uid="uid://dsdwu25ocaj24" path="res://entities/button/glitch.gdshader" id="4_nv1xt"]
+[ext_resource type="PackedScene" uid="uid://mhvnxqjo5wug" path="res://entities/bank/bank.tscn" id="4_wjbo7"]
 [ext_resource type="Script" uid="uid://ccyiwa8q853n" path="res://entities/board/dropzone/dropzone_obstacle.gd" id="5_7n3tm"]
-[ext_resource type="Texture2D" uid="uid://bfydrtn3ltyeb" path="res://entities/world/images/buttons small/шафл.png" id="5_d6mq2"]
+[ext_resource type="Texture2D" uid="uid://cfx1jn478cj2d" path="res://entities/world/images/buttons black/шафл.png" id="5_d6mq2"]
 [ext_resource type="Script" uid="uid://fgdfmt6v2f8n" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="5_dbdlv"]
-[ext_resource type="Texture2D" uid="uid://brlc3jukig5ja" path="res://entities/world/images/штурм.png" id="5_k6ytu"]
+[ext_resource type="Texture2D" uid="uid://chmi3t4t0nxtu" path="res://entities/world/images/buttons color/шоу.png" id="5_scvf5"]
 [ext_resource type="PackedScene" uid="uid://bs2vgjwuarxm5" path="res://entities/card/card_ui.tscn" id="6_1w52g"]
 [ext_resource type="PackedScene" uid="uid://bsewrrheailuf" path="res://entities/card/obstacle/obstacle_card_ui.tscn" id="6_56qjt"]
-[ext_resource type="Texture2D" uid="uid://eh7cyp80lybb" path="res://entities/world/images/buttons small/штандарт.png" id="6_egn8s"]
+[ext_resource type="Texture2D" uid="uid://r0mtmgrldb6f" path="res://entities/world/images/buttons black/штандарт.png" id="6_egn8s"]
+[ext_resource type="Texture2D" uid="uid://5y5fbrrbso76" path="res://entities/world/images/buttons color/шафл.png" id="7_wjbo7"]
+[ext_resource type="Texture2D" uid="uid://b48apbnjfa3r7" path="res://entities/world/images/buttons black/штурм.png" id="8_86uwj"]
 [ext_resource type="PackedScene" uid="uid://0ng376fah6n8" path="res://entities/instruction/instruction.tscn" id="9_46inl"]
+[ext_resource type="Texture2D" uid="uid://dgcleo8hgvfet" path="res://entities/world/images/buttons color/штандарт.png" id="10_ybe7n"]
+[ext_resource type="Texture2D" uid="uid://d13xyevusa40h" path="res://entities/world/images/buttons color/штурм.png" id="12_jrera"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6ytu"]
 shader = ExtResource("2_ynpsh")
@@ -31,9 +36,14 @@ shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
 shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
 shader_parameter/color_high = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86uwj"]
+bg_color = Color(0.6, 0.6, 0.6, 0.61960787)
+
 [sub_resource type="Theme" id="Theme_oqbkv"]
 Button/font_sizes/font_size = 12
 RichTextLabel/font_sizes/normal_font_size = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6mq2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86uwj"]
 shader = ExtResource("4_nv1xt")
@@ -59,8 +69,9 @@ _limits = [0.0, 50.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 60.0, 0, 0, Vector2(0.5, 40), 0.0, 0.0, 0, 0, Vector2(1, 0), -60.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Board" type="Node2D"]
+[node name="Board" type="Node2D" node_paths=PackedStringArray("bank")]
 script = ExtResource("1_yyni2")
+bank = NodePath("Bank")
 
 [node name="BGTextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_k6ytu")
@@ -74,48 +85,67 @@ grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_nv1xt")
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 1483.0
+offset_bottom = 788.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86uwj")
+
+[node name="Bank" parent="." node_paths=PackedStringArray("board") instance=ExtResource("4_wjbo7")]
+offset_left = 668.0
+offset_top = 74.0
+offset_right = 798.0
+offset_bottom = 106.0
+board = NodePath("..")
+
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 theme = SubResource("Theme_oqbkv")
 
-[node name="HBoxContainer" type="GridContainer" parent="Buttons"]
+[node name="HBoxContainer" type="VBoxContainer" parent="Buttons"]
 layout_mode = 0
-offset_left = 1307.0
-offset_top = 21.0
-offset_right = 1457.0
-offset_bottom = 173.0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = -8
+offset_left = 1165.0
+offset_top = 600.0
+offset_right = 1252.0
+offset_bottom = 717.0
 metadata/_edit_group_ = true
 
 [node name="ShowButton" type="TextureButton" parent="Buttons/HBoxContainer"]
 z_index = 4096
+material = SubResource("ShaderMaterial_d6mq2")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("4_86uwj")
+texture_hover = ExtResource("5_scvf5")
 
 [node name="SortButton" type="TextureButton" parent="Buttons/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("5_d6mq2")
+texture_hover = ExtResource("7_wjbo7")
 
 [node name="ResetButton" type="TextureButton" parent="Buttons/HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_86uwj")
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("6_egn8s")
+texture_hover = ExtResource("10_ybe7n")
 
 [node name="AssaultButton" type="TextureButton" parent="Buttons"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_faw45")
 layout_mode = 0
-offset_left = 1143.0
-offset_top = 406.0
-offset_right = 1301.0
-offset_bottom = 449.0
-texture_normal = ExtResource("5_k6ytu")
+offset_left = 1165.0
+offset_top = 438.0
+offset_right = 1250.0
+offset_bottom = 474.0
+texture_normal = ExtResource("8_86uwj")
+texture_hover = ExtResource("12_jrera")
 
 [node name="CardDropzone1" type="Control" parent="." node_paths=PackedStringArray("board", "card_pile_ui")]
 unique_name_in_owner = true
@@ -259,6 +289,8 @@ json_card_collection_path = "res://entities/card/card_collection.json"
 extended_card_ui = ExtResource("6_1w52g")
 extended_card_obstacle_ui = ExtResource("6_56qjt")
 obstacle_dropzone = NodePath("../CardDropzone_Obstacle")
+draw_pile_position = Vector2(40, 500)
+hand_pile_position = Vector2(630, 500)
 discard_pile_position = Vector2(1294, 475)
 click_draw_pile_to_draw = false
 draw_pile_layout = 2
@@ -267,9 +299,9 @@ hand_vertical_curve = SubResource("Curve_afhc1")
 
 [node name="Instruction" parent="." instance=ExtResource("9_46inl")]
 offset_left = 841.0
-offset_top = 195.0
+offset_top = 175.0
 offset_right = 1080.0
-offset_bottom = 307.0
+offset_bottom = 287.0
 
 [node name="Handbook" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_cfpx4")]
 visible = false
@@ -277,10 +309,10 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 363.0
-offset_top = 159.0
-offset_right = 1163.0
-offset_bottom = 643.0
+offset_left = 275.0
+offset_top = 152.0
+offset_right = 1139.0
+offset_bottom = 636.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

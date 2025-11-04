@@ -1,7 +1,15 @@
 extends Node
 
 
+const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 const ranks = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
+const plants = ["шафран","шалфей","шиповник"]
+const start_coords = [
+	Vector2i(1, 1),
+	Vector2i(1, 7),
+	Vector2i(7, 1),
+	Vector2i(7, 7),
+	]
 
 const KEY_IN_HAND_LIMIT: int = 2
 const HAND_LIMIT: int = 10
@@ -9,23 +17,49 @@ const HAND_DEFAULT: int = 7
 const TEXT_MAX_L: int = 20
 const BLACKJACK_VALUE: int = 21
 
+const TILE_SIZE: Vector2i = Vector2i(16, 16)
+const LOCK_AXIS: Vector2i = Vector2i(4, 4)
+const NEIGHBOUR_STEP: int = 2
+const DIRECTIONS = [
+	Vector2i(1, 0),
+	Vector2i(0, 1),
+	Vector2i(0, -1),
+	Vector2i(-1, 0),
+]
+
+
 const MAX_OBSTACLE_INDEX: int = 13
+const VICTORY_SKULL: int = 11
 
 var current_obstacle_index: int = 0
 var last_obstacle_index: int = 4
 
-var HANDBOOK_SHOWTIME_DELAY: float = 2.5#0.1#
+var GATEKEEPER_DISSOLVE_TIME = 5.0
+var HANDBOOK_SHOWTIME_DELAY: float = 2.5
 var SHAKE_HIT_SHIFT: float = 0.08
 
 var key_in_hand: Dictionary
 var key_exceptions: Array[KeyResource]
 var weight_to_obstacle: Dictionary
 
+var robber_speed: float = 50.0
+var robber_exit_speed: float = 250.0
+
+
+const DEFAULT_SILENT_VALUE: int = 100
+
+var on_test: bool = false#false
+
 
 var temp_obstacle_titles: Array[String]
 
 
 func _init() -> void:
+	if on_test:
+		GATEKEEPER_DISSOLVE_TIME = 0.1
+		HANDBOOK_SHOWTIME_DELAY = 0.1
+		robber_speed = 250.0
+	
 	init_weight_to_obstacle()
 	roll_last_obstacle_index()
 	

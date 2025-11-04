@@ -49,3 +49,33 @@ func update_textures() -> void:
 			%Street.visible = true
 			street_fact.visible = Achievements.is_street
 			street_mystery.visible = !Achievements.is_street
+
+
+func _on_flash_mouse_entered() -> void:
+	if !Achievements.is_flash: return
+	%FTooltip.toggle(true)
+
+
+func _on_flash_mouse_exited() -> void:
+	if !Achievements.is_flash: return
+	%FTooltip.toggle(false)
+
+
+func _on_street_mouse_entered() -> void:
+	if !Achievements.is_street: return
+	%STooltip.toggle(true)
+
+
+func _on_street_mouse_exited() -> void:
+	if !Achievements.is_street: return
+	%STooltip.toggle(false)
+
+
+func _on_blackjack_mouse_entered() -> void:
+	if !Achievements.is_blackjack: return
+	%BTooltip.toggle(true)
+
+
+func _on_blackjack_mouse_exited() -> void:
+	if !Achievements.is_blackjack: return
+	%BTooltip.toggle(false)

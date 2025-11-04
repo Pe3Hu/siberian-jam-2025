@@ -439,14 +439,17 @@ func get_hand_cards() -> Array:
 	return _hand_pile
 	
 func end_game_reset() -> void:
-	#for _i in range(_draw_pile.size()-1, -1, -1):
-		#var card = _draw_pile.pop_back()
-		#remove_card_from_game(card)
-	#for _i in range(_hand_pile.size()-1, -1, -1):
-		#var card = _hand_pile.pop_back()
-		#remove_card_from_game(card)
-	#for _i in range(_discard_pile.size()-1, -1, -1):
-		#var card = _discard_pile.pop_back()
-		#remove_card_from_game(card)
+	for _i in range(_draw_pile.size()-1, -1, -1):
+		var card = _draw_pile.pop_back()
+		remove_card_from_game(card)
+	for _i in range(_hand_pile.size()-1, -1, -1):
+		var card = _hand_pile.pop_back()
+		remove_card_from_game(card)
+	for _i in range(_discard_pile.size()-1, -1, -1):
+		var card = _discard_pile.pop_back()
+		remove_card_from_game(card)
+	for _i in range(obstacle_dropzone._held_cards.size()-1, -1, -1):
+		var card = obstacle_dropzone._held_cards.pop_back()
+		remove_card_from_game(card)
 	_reset_card_collection()
 	

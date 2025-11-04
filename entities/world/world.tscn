@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dv3qxhhhkmwam"]
+[gd_scene load_steps=21 format=3 uid="uid://dv3qxhhhkmwam"]
 
 [ext_resource type="Script" uid="uid://cwb2m0okreutq" path="res://entities/world/world.gd" id="1_plka4"]
 [ext_resource type="PackedScene" uid="uid://bayw73ve8ui7r" path="res://entities/board/board.tscn" id="2_tytc4"]
+[ext_resource type="PackedScene" uid="uid://b07vx4d7tiv0j" path="res://entities/maze/maze.tscn" id="3_hl0m3"]
 [ext_resource type="Shader" uid="uid://bserpv1k7h52d" path="res://entities/world/shader/Starfield Parallax Shader.gdshader" id="3_k6o36"]
 [ext_resource type="Texture2D" uid="uid://x2xxtv3m803i" path="res://entities/world/images/menu bg.bmp" id="4_mrp82"]
 [ext_resource type="Texture2D" uid="uid://dtxuobrqajvh1" path="res://entities/card/images/card_diamonds_A.png" id="5_db8ab"]
@@ -12,6 +13,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hl0m3"]
 shader = ExtResource("3_k6o36")
 shader_parameter/VIEWPORT_SIZE = Vector2(1280, 720)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hl0m3"]
+font_size = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7bg0"]
 
@@ -39,6 +43,13 @@ metadata/_custom_type_script = "uid://cersb4ybwexsy"
 script = ExtResource("1_plka4")
 
 [node name="Board" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_tytc4")]
+unique_name_in_owner = true
+world = NodePath("..")
+
+[node name="Maze" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_hl0m3")]
+unique_name_in_owner = true
+position = Vector2(30, 23.000002)
+scale = Vector2(3, 3)
 world = NodePath("..")
 
 [node name="Menu" type="PanelContainer" parent="."]
@@ -61,8 +72,16 @@ texture = ExtResource("4_mrp82")
 [node name="Buttons" type="VBoxContainer" parent="Menu"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 80
 alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Menu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Шестой марШ"
+label_settings = SubResource("LabelSettings_hl0m3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndButtons" type="HBoxContainer" parent="Menu/Buttons"]
 unique_name_in_owner = true
@@ -95,18 +114,18 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="Menu/Buttons/MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_k6o36")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tytc4")
-text = "вошел"
+text = "Вошёл"
 
 [node name="ExitButton" type="Button" parent="Menu/Buttons/MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -114,7 +133,7 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mrp82")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gi14s")
-text = "ушел"
+text = "Вышел"
 
 [node name="EndGame" type="PanelContainer" parent="Menu"]
 unique_name_in_owner = true

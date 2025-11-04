@@ -25,6 +25,7 @@ func roll_key_resource() -> void:
 	match card_data.suit:
 		"H":
 			stock_path += "звук"
+			%SoundPanelContainer.visible = true
 		"C":
 			stock_path += "аромат"
 		"S":
@@ -35,11 +36,16 @@ func roll_key_resource() -> void:
 	apply_bbcode()
 	
 func apply_bbcode() -> void:
+	var bbcode_str = ""
 	if !is_combo:
-		title_label.text = key_resource.title
+		bbcode_str = key_resource.title
+		
+		if Settings.plants.has(key_resource.title):
+			bbcode_str = "[color=#008800]" + bbcode_str + "[/color]"
+		
+		title_label.text = bbcode_str
 		return
 	
-	var bbcode_str = ""
 	var part = ""
 	var letters = ["щ","ш","м","т"]
 	
@@ -60,6 +66,10 @@ func apply_bbcode() -> void:
 					#bbcode_str += "[wave amp=30.0 freq=3.5 connected=1]{text}[/wave]".format({"text": letter})
 	
 	bbcode_str += part
+	
+	if Settings.plants.has(key_resource.title):
+		bbcode_str = "[color=dark_color]" + bbcode_str + "[/color]"
+	
 	title_label.text = bbcode_str#"[shake rate=20.0 level=5 connected=1]{title}[/shake]".format({"title": key_resource.title})
 	
 func generate_key(stock_: StockResource) -> void:

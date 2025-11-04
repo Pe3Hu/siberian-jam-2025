@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://c86bdnailm0t"]
+
+[ext_resource type="Script" uid="uid://cgm0ngk0ejnux" path="res://entities/maze/gatekeeper/gatekeeper.gd" id="1_1pnh4"]
+[ext_resource type="Texture2D" uid="uid://cl8wvomrd80sc" path="res://entities/maze/images/shadow.png" id="2_lh8b6"]
+[ext_resource type="Texture2D" uid="uid://c6nhlkxsy7y8e" path="res://entities/maze/images/enemy.png" id="2_pjssy"]
+[ext_resource type="Shader" uid="uid://cbxxlxwutroq4" path="res://entities/maze/gatekeeper/dissolve.gdshader" id="3_ckxd1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxd1"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ckxd1"]
+frequency = 0.4054
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3qffp"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_ckxd1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7j68"]
+shader = ExtResource("3_ckxd1")
+shader_parameter/progress = -0.85
+shader_parameter/noiseForce = 0.2
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_3qffp")
+shader_parameter/burnColor = Color(0, 0, 0, 1)
+shader_parameter/borderWidth = 0.0
+shader_parameter/direction = 90.0
+
+[sub_resource type="Animation" id="Animation_ckxd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShadowSprite/BodySprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lh8b6"]
+resource_name = "bite"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShadowSprite/BodySprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3qffp"]
+_data = {
+&"RESET": SubResource("Animation_ckxd1"),
+&"bite": SubResource("Animation_lh8b6")
+}
+
+[node name="Gatekeeper" type="Area2D"]
+script = ExtResource("1_1pnh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ckxd1")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 7)
+texture = ExtResource("2_lh8b6")
+
+[node name="BodySprite" type="Sprite2D" parent="ShadowSprite"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_a7j68")
+position = Vector2(0, -7)
+texture = ExtResource("2_pjssy")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_3qffp")
+}

@@ -49,14 +49,38 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="PanelContainer" type="PanelContainer" parent="Frontface/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Frontface/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="SoundPanelContainer" type="PanelContainer" parent="Frontface/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_u11ho")
 
-[node name="TitleLabel" type="RichTextLabel" parent="Frontface/MarginContainer/PanelContainer"]
+[node name="SoundLabel" type="RichTextLabel" parent="Frontface/MarginContainer/VBoxContainer/SoundPanelContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[wave freq=2]Тишина[/wave]"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Frontface/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u11ho")
+
+[node name="TitleLabel" type="RichTextLabel" parent="Frontface/MarginContainer/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2

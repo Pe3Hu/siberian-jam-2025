@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bc6bmv1l5aflq" path="res://entities/handbook/slot/chevron/chevron.tscn" id="4_h046u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5jpf"]
-bg_color = Color(0.6, 0.6, 0.6, 0.5686275)
+bg_color = Color(0.11, 0.11, 0.11, 0.5686275)
 
 [node name="Handbook" type="PanelContainer"]
 offset_right = 800.0
